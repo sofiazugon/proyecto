@@ -1,0 +1,134 @@
+@use '../scss/base/typography';
+@use '../scss/abstracts/variables';
+@use '../components/buttons';
+
+
+
+header{
+    h1{
+        @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-xmed, variables.$clr-white);
+        text-align: left;
+        width: 70%;
+        margin-left: 10%
+        
+    }
+    
+    p{
+        @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-sm, variables.$clr-white);
+        text-align: center;
+        width: 85%;
+        margin-left: 10%
+
+    }
+}
+
+h2{
+    @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-xmed, variables.$clr-dred);
+    
+}
+
+//Navbar//
+.navbar-box{
+    
+    button{
+        @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-xxxsm, variables.$clr-white);
+    }
+    
+    background-color: variables.$clr-red;
+    
+    //width: 150rem;
+    
+    align-items: center;
+
+    form{
+        input{
+            @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-xxxsm, variables.$clr-white);
+            background-color: variables.$clr-dred;
+            border-radius: 2em;
+            border-color: none;
+        }
+        button{
+            @include typography.set-font(variables.$ff, variables.$fw-semibold, variables.$fs-xxxsm, variables.$clr-dred);
+            background-color: variables.$clr-white;
+            border-radius: 2em;
+            border-color: none;
+        }
+        
+
+    }
+
+}
+
+
+//parrafos
+
+p{
+    @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-xsm, variables.$clr-dark);
+    text-align: left;
+
+}
+
+.p-sub{
+    @include typography.set-font(variables.$ff, variables.$fw-semibold, variables.$fs-sm, variables.$clr-dark);
+}
+
+.p-med{
+    @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-xxsm, variables.$clr-dark);
+}
+
+.p-tiny{
+    @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-xxxsm, variables.$clr-dark);
+    text-align: left;
+    padding-top: 0%
+
+}
+    
+.p-rp{
+    @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-xxxsm, variables.$clr-dred);
+    text-align: left;
+    }
+
+
+//botones
+
+.red-btn{
+@include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-xxxsm, variables.$clr-white);
+@include buttons.btn-view(variables.$clr-dred, variables.$clr-white, variables.$ff );
+    
+}
+
+.lred-btn{
+    @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-xxxsm, variables.$clr-white);
+    @include buttons.btn-navlr(variables.$clr-red, variables.$clr-white, variables.$ff );
+}
+
+.nred-btn{
+    @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-xxxsm, variables.$clr-white);
+    @include buttons.btn-nred(variables.$clr-nred, variables.$clr-white, variables.$ff );
+}
+
+.white-btn{
+    @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-xxxsm, variables.$clr-dark);
+    @include buttons.btn-navw(variables.$clr-white, variables.$clr-dark, variables.$ff );
+}
+
+
+.footer-box{
+    a{
+        @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-sm, variables.$clr-white);
+    }
+    p{
+        @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-xxxsm, variables.$clr-white);
+    }
+    background-color: variables.$clr-red;
+    padding-top: 1rem;
+    padding-left: 0%;
+    padding-right: 0%;
+    width: 119rem;
+    height: 10rem;
+    margin: 0%;
+    align-items: center;
+
+}
+
+//perfil imagen

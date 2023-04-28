@@ -1,0 +1,12 @@
+@use '../abstracts/variables';
+@use '../base/typography';
+
+body{
+    font-family: variables.$ff;
+}
+
+.card-rp{
+    box-shadow: none;
+
+}
+

@@ -1,0 +1,67 @@
+@use '../abstracts/variables';
+@use '../base/typography';
+
+//buttons
+
+@mixin btn-view($border, $bg, $color){
+    position: relative;
+    display: block;
+    place-items: center;
+    border-radius: 1rem;
+    background-color: variables.$clr-dred;
+    border: $border;
+    padding: .4rem .4rem;
+    text-decoration: none;
+    font-family: variables.$ff;
+    align-items: center;
+    box-shadow: none;
+    
+
+}
+
+@mixin btn-nred($border, $bg, $color){
+    position: relative;
+    display: block;
+    place-items: center;
+    border-radius: 1rem;
+    background-color: variables.$clr-nred;
+    border: $border;
+    padding: .4rem .4rem;
+    text-decoration: none;
+    font-family: variables.$ff;
+    align-items: center;
+    box-shadow: none;
+    
+
+}
+
+@mixin btn-navlr($border, $bg, $color){
+    position: relative;
+    display: block;
+    place-items: center;
+    border-radius: 1rem;
+    background-color: variables.$clr-red;
+    border: $border;
+    padding: .4rem .4rem;
+    text-decoration: none;
+    font-family: variables.$ff;
+    align-items: center;
+    box-shadow: none;
+    
+
+}
+
+@mixin btn-navw($border, $bg, $color){
+    position: relative;
+    display: block;
+    place-items: center;
+    background-color: variables.$clr-white;
+    border: $border;
+    padding: .4rem .4rem;
+    text-decoration: none;
+    font-family: variables.$ff;
+    align-items: center;
+    box-shadow: none;
+    
+
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Cook It</title>
+</head>
+<body>
+    <section id="#app">
+        <recipe-card></recipe-card>
+        
+        <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-style">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 id="staticBackdropLabel">{{ recipes[selectedIndex].name }}</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body row">
+              <img class="d-block m-auto img-fluid" v-bind:src="recipes[selectedIndex].image" alt="{{ recipes[selectedIndex].name }}">
+              <p>Ingredientes</p>
+              <h2 class="text-center fs-6">{{ recipes[selectedIndex].ingredients }}</h2>
+              <p>Preparacion</p>
+              <h3 class="fst-italic fw-light fs-5">{{ recipes[selectedIndex].instructions }}</h3>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn lred-btn" v-on:click="onClickPrev()">Anterior</button>
+              <button type="button" class="btn nred-btn" v-on:click="onClickNext()">Siguiente</button>
+              <button type="button" class="btn red-btn" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+
+        <!--Nav-->
+        <div>
+            <nav class="navbar navbar-box navbar-expand-lg">
+                <div class="container-fluid">
+                    <img src="images/Logo-cook-it.png" alt="logo">
+                    
+                    <ul class="navbar-nav me-auto">
+                        <button class="btn">Inicio</button>
+                        <button class="btn">Editar</button>
+                        <button class="btn">Mi Cuenta</button>
+                        
+                    </ul>
+                 
+                </div>
+            </nav>
+            <div class="bg-perfil ">
+                <header class="container col-md-2">
+                    <div class="row ">
+                        <img class="img-fluid" src="images/perfil.png" alt="perfil">
+                    </div>
+                    <div class="row">
+                        <h1>Nombre de Usuario</h1>
+                    </div>
+
+                </header>
+            </div>
+        </div>
+        <!--Nav-->
+        <section class="container-lg sec-perfil">
+            <h1>Información de tu cuenta</h1>
+            <section class="row">
+                <h2>Nombre:</h2>
+                <h2>Apellido:</h2>
+                <h2>Nombre de Usuario:</h2>
+                <h2>Correo Electrónico:</h2>
+            </section>
+            <button class="btn red-btn">Editar Información</button>
+            <section>
+                <h1>Tus recetas</h1>
+                <section class="row">
+                    <div v-if="hasRecipes" v-for="(item, index) in recipes" class="col-md-5" >
+                        <div class="card card-detail mb-3">
+                            <div class="row g-0">
+                              <div class="col-md-4">
+                                <img v-bind:src="item.image" class="card-img-top rounded" alt="featured recipe">
+                              </div>
+                              <div class="col-md-8">
+                                <div class="card-body pt-0">
+                                    <h2 class="mt-2 mb-0">{{ item.category }}</h2>
+                                    <h1 class="card-title">{{ item.name }}</h1>
+                                    <p class="card-text mb-0">{{ item.description }}</p>
+                                    <p class="mb-0">{{ item.time }}</p>
+                                    <p class="mb-0">{{ item.level }}</p>
+                                    <button class="btn red-btn" v-on:click="onClickViewRecipe(index)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ver Receta</button>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                  </section>
+            </section>
+        </section>
+
+        <!-- footer -->
+        <footer class="row text-center footer-box container-fluid ">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Contactenos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Terminos y Condiciones</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Politicas de Privacidad</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Accesibilidad</a>
+                </li>
+            </ul>
+            <p class="mb-0 text-center">CookIt es una marca registrada, derechos reservados.</p>
+            <p class="mb-0 text-center">© 2023 CookIt.</p>
+        </footer>
+        <!-- footer -->
+
+    </section>
+</section>
+<!-- VueJS -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<!-- main script -->
+<script src="./js/main.js"></script>
+<script src="./js/components/RecipeCard.js"></script>
+<script src="./js/components/RecipeCategoryButton.js"></script>
+
+<!-- mounted -->
+<script>
+  const mountedApp = app.mount("#app");
+</script>
+</body>

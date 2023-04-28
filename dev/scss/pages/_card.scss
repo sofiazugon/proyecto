@@ -1,0 +1,68 @@
+@use '../scss/base/typography';
+@use '../scss/abstracts/variables';
+@use '../components/buttons';
+//@use '.../dist/js/component.js';
+
+.card-detail{
+    display: block;
+    border: 1px solid;
+    border-color: variables.$clr-red;
+    border-width: .2rem;
+    border-radius: 1rem;
+    padding-top: 2rem;
+    padding-left: 2rem;
+    align-items: center;
+
+
+    h1{
+        @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-xsm, variables.$clr-nred);
+        padding: .2rem;
+
+    }
+    h2{
+        @include typography.set-font(variables.$ff, variables.$fw-semibold, variables.$fs-sm, variables.$clr-red);
+        padding: .2rem;
+
+    }
+    p{
+        @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-xxsm, variables.$clr-dark);
+        padding: .2rem;
+
+    }
+    }
+
+
+
+.modal-style{
+
+
+    div{
+    border: 3px;
+    border-color: none;
+    border-width: 2rem;
+    border-radius: 1rem;
+    margin: 1em;
+    
+   
+    align-items: center;
+    }
+    
+    h1{
+        @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-sm, variables.$clr-red);
+        padding: .2rem;
+    }
+    h2{
+        @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-sm, variables.$clr-nred);
+        padding: .2rem;
+    }
+    h3{
+        @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-sm, variables.$clr-dark);
+        padding: .2rem;
+    }
+    p{
+        @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-sm, variables.$clr-dred);
+        padding: .2rem;
+    }
+    
+    
+}

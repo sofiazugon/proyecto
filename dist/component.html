@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <link rel="stylesheet" href="./css/main.css">
+    <title>VueJS - Components</title>
+</head>
+<body>
+    <section id="app" class="container">
+
+        <recipe-category-button category="Lunch"></recipe-category-button>
+
+        <recipe-card image="./images/featured-recipe.jpg" category="Lunch" name="Sushi" description="300ml Sushi Rice, 100ml Rice wine, 2 tbs Caster Sugar, 3 tbs Mayonnaise, 1 tbs Rice wine, 1 tbs Soy Sauce1 Cucumber" time="30 mins" level="Easy" likes=20></recipe-card>
+    </section>
+    <!-- VueJS -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- main script -->
+    <script src="./js/component.js"></script>
+
+    <!--<script src="./js/components/ClickCounter.js"></script>-->
+    <script src="./js/components/RecipeCard.js"></script>
+    <script src="./js/components/RecipeCategoryButton.js"></script>
+
+    <script>
+        const mountedApp = app.mount("#app");
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Cook It</title>
+</head>
+<body>
+
+    <section id="app">
+
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-style">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 id="staticBackdropLabel">{{ recipes[selectedIndex].name }}</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body row">
+              <img class="d-block m-auto img-fluid" v-bind:src="recipes[selectedIndex].image" alt="{{ recipes[selectedIndex].name }}">
+              <p>Ingredientes</p>
+              <h2 class="text-center fs-6">{{ recipes[selectedIndex].ingredients }}</h2>
+              <p>Preparacion</p>
+              <h3 class="fst-italic fw-light fs-5">{{ recipes[selectedIndex].instructions }}</h3>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn lred-btn" v-on:click="onClickPrev()">Anterior</button>
+              <button type="button" class="btn nred-btn" v-on:click="onClickNext()">Siguiente</button>
+              <button type="button" class="btn red-btn" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+        <!-- header section -->
+        <div class="row">
+          <nav class="navbar navbar-box navbar-expand-lg">
+              <div class="container-fluid">
+
+                <img src="images/Logo-cook-it.png" alt="logo">
+                
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li v-for="(category, index) in categories" class="nav-item">
+                          <button class="btn" v-on:click="onClickCategory(category.name)" aria-current="page">{{ category.name }}</button>
+                          
+                      </li>
+                      <button class="btn">Mi Cuenta</button>
+                      
+                  </ul>
+
+                  <form class="d-flex" role="search">
+                      <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                      <button class="btn btn-outline-success" type="submit">Buscar</button>
+                  </form>
+               
+              </div>
+          </nav>
+        <header class="position-relative">
+            <img v-bind:src="image" class="img-fluid" alt="header">
+            <div class="position-absolute top-50 start-50 translate-middle">
+                <h1>{{ title }}</h1>
+                <p>{{ description }}</p>
+            </div>
+        </header>
+        
+        </div>
+        <!-- header section -->
+
+        <!-- welcome -->
+        <section class="container"> <!--inicio body section-->
+
+        
+          <section class="row mt-4">
+              <h2 class="text-center">Bienvenido a Cook It, aquí podrás compartir 
+                y observar variedad de recetas.</h2>
+              <p>Nuestro sitio web también presenta colecciones de recetas para ocasiones especiales, como días festivos, cumpleaños y aniversarios, así como restricciones dietéticas, como sin gluten, vegetarianas y veganas. Con nuestra diversa selección de recetas, puede satisfacer sus antojos y explorar nuevos sabores sin sacrificar sus necesidades dietéticas.</p>
+          </section>
+          <!-- welcome -->
+
+          <!-- featured recipes -->
+          <section class=" mt-2 pt-5">
+              <h2 class="mb-2">Recetas</h2>
+
+              <section class="row">
+
+                <!--<div v-for="(item, index) in recipes">
+                  <p>{{ item.category }}</p>
+                </div>-->
+
+                <div v-if="hasRecipes" v-for="(item, index) in recipes" class="col-md-3">
+                  <div class="card-detail p-4">
+                      <img v-bind:src="item.image" class="card-img-top rounded" alt="featured recipe">
+                      <div class=" p-0">
+                          <h2 class="mt-2">{{ item.category }}</h2>
+                          <h1 class="card-title">{{ item.name }}</h1>
+                          <p class="card-text">{{ item.description }}</p>
+                          <p>{{ item.time }}</p>
+                          <p>{{ item.level }}</p>
+                          <p>{{ item.likes }}</p>
+                          <div class="nav">
+                          <button class="btn lred-btn" v-on:click="onClickLike(index)">Like</button>
+                          <button class="btn nred-btn" v-on:click="onClickUnlike(index)">Dislike</button>
+                          <button class="btn red-btn" v-on:click="onClickViewRecipe(index)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ver Receta</button>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <p v-else class="fs-3 fw-bold">No hay recetas para esta categoria!</p>
+
+                <!-- 
+                  <div class="col-sm">
+                      <div class="card p-3">
+                          <img src="./images/featured-recipe.jpg" class="card-img-top rounded" alt="featured recipe">
+                          <div class="card-body p-0">
+                              <p class="mt-2">Rice</p>
+                              <h5 class="card-title">Satay sweet potato vegan curry</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <p>20 min</p>
+                              <p>Easy</p>
+                              <p>{{ likes }}</p>
+                              <button class="btn btn-danger" v-on:click="onClickLike">Like</button>
+                              <button class="btn btn-success" v-on:click="onClickUnlike">Unlike</button>
+                              <a href="#" class="btn btn-primary">View Recipe</a>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm">
+                      <div class="card p-3">
+                          <img src="./images/featured-recipe.jpg" class="card-img-top rounded" alt="featured recipe">
+                          <div class="card-body p-0">
+                              <p class="mt-2">Rice</p>
+                              <h5 class="card-title">Satay sweet potato vegan curry</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <p>20 min</p>
+                              <p>Easy</p>
+                              <a href="#" class="btn btn-primary">View Recipe</a>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm">
+                      <div class="card p-3">
+                          <img src="./images/featured-recipe.jpg" class="card-img-top rounded" alt="featured recipe">
+                          <div class="card-body p-0">
+                              <p class="mt-2">Rice</p>
+                              <h5 class="card-title">Satay sweet potato vegan curry</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <p>20 min</p>
+                              <p>Easy</p>
+                              <a href="#" class="btn btn-primary">View Recipe</a>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm">
+                      <div class="card p-3">
+                          <img src="./images/featured-recipe.jpg" class="card-img-top rounded" alt="featured recipe">
+                          <div class="card-body p-0">
+                              <p class="mt-2">Rice</p>
+                              <h5 class="card-title">Satay sweet potato vegan curry</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <p>20 min</p>
+                              <p>Easy</p>
+                              <a href="#" class="btn btn-primary">View Recipe</a>
+                          </div>
+                      </div>
+                  </div>
+                -->
+
+              </section>
+          </section>
+          <!-- featured recipes -->
+
+          <!--Recomendaciones-->
+
+          <section class="pt-5">
+            <h2>Recomendaciones</h2>
+            <section class="container col-md-7">
+              <div class="row"><iframe src="https://assets.pinterest.com/ext/embed.html?id=154459462210689299" height="445" width="345" frameborder="0" scrolling="no" ></iframe></div>
+              <div class="row">
+                <p class="p-med text-center pt-2">Recuerda mantener tu zona de cocina siempre limpia y organizada. <br>Utiliza ingredientes frescos y que no esten vencidos. <br>En Cook It encontraras variedad de recetas.</p>
+              </div>
+
+            </section>
+          </section>
+
+          <!--Recomendaciones-->
+
+          <!-- best recipes -->
+          <section class="row pt-5">
+              <h2>Mejores Recetas</h2>
+              <section class="row">
+                  <div v-if="hasRecipes" v-for="(item, index) in recipes" class="col-md-5" >
+                      <div class="card card-detail mb-3">
+                          <div class="row g-0">
+                            <div class="col-md-4">
+                              <img v-bind:src="item.image" class="card-img-top rounded" alt="featured recipe">
+                            </div>
+                            <div class="col-md-8">
+                              <div class="card-body pt-0">
+                                  <h2 class="mt-2 mb-0">{{ item.category }}</h2>
+                                  <h1 class="card-title">{{ item.name }}</h1>
+                                  <p class="card-text mb-0">{{ item.description }}</p>
+                                  <p class="mb-0">{{ item.time }}</p>
+                                  <p class="mb-0">{{ item.level }}</p>
+                                  <button class="btn red-btn" v-on:click="onClickViewRecipe(index)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ver Receta</button>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+                </section>
+              </section>
+                <!--- <div class="col-sm">
+                      <div class="card mb-3">
+                          <div class="row g-0">
+                            <div class="col-md-4">
+                              <img src="./images/best-recipe.jpg" class="img-fluid rounded m-2" alt="best recipe">
+                            </div>
+                            <div class="col-md-8">
+                              <div class="card-body pt-0">
+                                  <p class="mt-2 mb-0">Rice</p>
+                                  <h5 class="card-title">Goan-style vegetable curry with kitchari</h5>
+                                  <p class="card-text mb-0">Eat all 5 of your 5-a-day in one delicious curry, served with</p>
+                                  <p class="mb-0">20 min</p>
+                                  <p class="mb-0">Easy</p>
+                                  <a href="#" class="btn btn-primary">View Recipe</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+              </section>
+              <section class="row">
+                  <div class="col-sm">
+                      <div class="card mb-3">
+                          <div class="row g-0">
+                            <div class="col-md-4">
+                              <img src="./images/best-recipe.jpg" class="img-fluid rounded m-2" alt="best recipe">
+                            </div>
+                            <div class="col-md-8">
+                              <div class="card-body pt-0">
+                                  <p class="mt-2 mb-0">Rice</p>
+                                  <h5 class="card-title">Goan-style vegetable curry with kitchari</h5>
+                                  <p class="card-text mb-0">Eat all 5 of your 5-a-day in one delicious curry, served with</p>
+                                  <p class="mb-0">20 min</p>
+                                  <p class="mb-0">Easy</p>
+                                  <a href="#" class="btn btn-primary">View Recipe</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+                  <div class="col-sm">
+                      <div class="card mb-3">
+                          <div class="row g-0">
+                            <div class="col-md-4">
+                              <img src="./images/best-recipe.jpg" class="img-fluid rounded m-2" alt="best recipe">
+                            </div>
+                            <div class="col-md-8">
+                              <div class="card-body pt-0">
+                                  <p class="mt-2 mb-0">Rice</p>
+                                  <h5 class="card-title">Goan-style vegetable curry with kitchari</h5>
+                                  <p class="card-text mb-0">Eat all 5 of your 5-a-day in one delicious curry, served with</p>
+                                  <p class="mb-0">20 min</p>
+                                  <p class="mb-0">Easy</p>
+                                  <a href="#" class="btn btn-primary">View Recipe</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+              </section>
+              <section class="row">
+                  <div class="col-sm">
+                      <div class="card mb-3">
+                          <div class="row g-0">
+                            <div class="col-md-4">
+                              <img src="./images/best-recipe.jpg" class="img-fluid rounded-start" alt="best recipe">
+                            </div>
+                            <div class="col-md-8">
+                              <div class="card-body">
+                                <h5 class="card-title">Goan-style vegetable curry with kitchari</h5>
+                                <p class="card-text">Eat all 5 of your 5-a-day in one delicious curry, served with brown rice and lentils. It's healthy, vegan, gluten-free and provides vitamin C and iron, too.</p>
+                                <a href="#" class="btn btn-primary">View Recipe</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+                  <div class="col-sm">
+                      <div class="card mb-3">
+                          <div class="row g-0">
+                            <div class="col-md-4">
+                              <img src="./images/best-recipe.jpg" class="img-fluid rounded-start" alt="best recipe">
+                            </div>
+                            <div class="col-md-8">
+                              <div class="card-body">
+                                <h5 class="card-title">Goan-style vegetable curry with kitchari</h5>
+                                <p class="card-text">Eat all 5 of your 5-a-day in one delicious curry, served with brown rice and lentils. It's healthy, vegan, gluten-free and provides vitamin C and iron, too.</p>
+                                <a href="#" class="btn btn-primary">View Recipe</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+              </section>
+          </section> -->
+          <!-- best recipes -->
+          </section> <!--fin body section-->
+        <!-- footer -->
+        <footer class="row text-center footer-box container-fluid ">
+          <ul class="nav justify-content-center">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Contactenos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Terminos y Condiciones</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Politicas de Privacidad</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Accesibilidad</a>
+              </li>
+          </ul>
+          <p class="mb-0 text-center">CookIt es una marca registrada, derechos reservados.</p>
+          <p class="mb-0 text-center">© 2023 CookIt.</p>
+      </footer>
+      <!-- footer -->
+
+    </section>
+    <!-- VueJS -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- main script -->
+    <script src="./js/main.js"></script>
+    <!-- mounted -->
+    <script>
+      const mountedApp = app.mount("#app");
+    </script>
+</body>
+</html>

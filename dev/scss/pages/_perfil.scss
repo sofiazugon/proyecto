@@ -1,0 +1,46 @@
+@use '../scss/base/typography';
+@use '../scss/abstracts/variables';
+@use '../components/buttons';
+@use '../pages/home';
+
+
+//perfil imagen
+.bg-perfil{
+    img{
+        
+        width: 200px;
+        height:200px;
+        margin-left: 5rem;
+        padding-bottom:2rem ;
+        
+    }
+    background-color: variables.$clr-red;
+   
+    h1{
+        @include typography.set-font(variables.$ff, variables.$fw-semibold, variables.$fs-sm, variables.$clr-white);
+        text-align: center;
+        padding-bottom:2rem ;
+    }
+}
+
+.sec-perfil{
+    padding-top: 4rem;
+    h1{
+        @include typography.set-font(variables.$ff, variables.$fw-semibold, variables.$fs-xmed, variables.$clr-nred);
+        
+        padding-bottom:2rem ;
+        padding-top:2rem ;
+    }
+
+    h2{
+        @include typography.set-font(variables.$ff, variables.$fw-semibold, variables.$fs-xxsm, variables.$clr-dred);
+        
+        padding-bottom:2rem ;
+    }
+    button{
+        border-radius: 2em;
+        border-color: none;
+        
+        
+    }
+}
