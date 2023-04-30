@@ -51,6 +51,7 @@
         border-color: variables.$clr-red;
         width: 50rem;
         
+        
     }
     a{
         @include typography.set-font(variables.$ff, variables.$fw-semibold, variables.$fs-xxxmed, variables.$clr-nred);
@@ -60,3 +61,5 @@
 
     }
 }
+
+
