@@ -36,11 +36,27 @@
         @include typography.set-font(variables.$ff, variables.$fw-semibold, variables.$fs-xxsm, variables.$clr-dred);
         
         padding-bottom:2rem ;
+        padding-top:2rem ;
     }
     button{
         border-radius: 2em;
         border-color: none;
+        width: 10rem;
         
+          
+    }
+
+    input{
+        border-radius: 2em;
+        border-color: variables.$clr-red;
+        width: 50rem;
         
+    }
+    a{
+        @include typography.set-font(variables.$ff, variables.$fw-semibold, variables.$fs-xxxmed, variables.$clr-nred);
+        color: variables.$clr-nred;
+        font-style: normal;
+        font-family: variables.$ff;
+
     }
 }

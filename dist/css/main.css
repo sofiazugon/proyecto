@@ -13908,8 +13908,15 @@ p {
   font-size: 1.375rem;
   color: hsl(14deg, 59%, 47%);
   padding-bottom: 2rem;
+  padding-top: 2rem;
 }
 .sec-perfil button {
   border-radius: 2em;
   border-color: none;
+  width: 10rem;
+}
+.sec-perfil input {
+  border-radius: 2em;
+  border-color: hsl(14deg, 69%, 63%);
+  width: 50rem;
 }
