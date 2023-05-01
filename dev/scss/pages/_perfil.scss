@@ -54,10 +54,11 @@
         
     }
     a{
-        @include typography.set-font(variables.$ff, variables.$fw-semibold, variables.$fs-xxxmed, variables.$clr-nred);
+        @include typography.set-font(variables.$ff, variables.$fw-semibold, variables.$fs-xxxsm, variables.$clr-nred);
         color: variables.$clr-nred;
         font-style: normal;
         font-family: variables.$ff;
+        
 
     }
 }

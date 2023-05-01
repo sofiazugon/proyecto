@@ -34,6 +34,11 @@ h2{
         @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-xxxsm, variables.$clr-white);
     }
     
+    p{
+        @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-xsm, variables.$clr-white);
+        
+    
+    }
     background-color: variables.$clr-red;
     
     //width: 150rem;
@@ -112,23 +117,5 @@ p{
     @include buttons.btn-navw(variables.$clr-white, variables.$clr-dark, variables.$ff );
 }
 
-
-.footer-box{
-    a{
-        @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-sm, variables.$clr-white);
-    }
-    p{
-        @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-xxxsm, variables.$clr-white);
-    }
-    background-color: variables.$clr-red;
-    padding-top: 1rem;
-    padding-left: 0%;
-    padding-right: 0%;
-    width: 119rem;
-    height: 10rem;
-    margin: 0%;
-    align-items: center;
-
-}
 
 //perfil imagen

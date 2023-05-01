@@ -13424,6 +13424,12 @@ h2 {
   font-size: 1.25rem;
   color: hsl(0deg, 0%, 100%);
 }
+.navbar-box p {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  font-size: 1.563rem;
+  color: hsl(0deg, 0%, 100%);
+}
 .navbar-box form input {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
@@ -13563,31 +13569,6 @@ p {
           align-items: center;
   -webkit-box-shadow: none;
           box-shadow: none;
-}
-
-.footer-box {
-  background-color: hsl(14deg, 69%, 63%);
-  padding-top: 1rem;
-  padding-left: 0%;
-  padding-right: 0%;
-  width: 119rem;
-  height: 10rem;
-  margin: 0%;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.footer-box a {
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 700;
-  font-size: 1.875rem;
-  color: hsl(0deg, 0%, 100%);
-}
-.footer-box p {
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 400;
-  font-size: 1.25rem;
-  color: hsl(0deg, 0%, 100%);
 }
 
 .card-detail {
@@ -13704,6 +13685,13 @@ h2 {
   color: hsl(0deg, 0%, 100%);
 }
 
+.navbar-box p {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  font-size: 1.563rem;
+  color: hsl(0deg, 0%, 100%);
+}
+
 .navbar-box form input {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
@@ -13846,33 +13834,6 @@ p {
           box-shadow: none;
 }
 
-.footer-box {
-  background-color: hsl(14deg, 69%, 63%);
-  padding-top: 1rem;
-  padding-left: 0%;
-  padding-right: 0%;
-  width: 119rem;
-  height: 10rem;
-  margin: 0%;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.footer-box a {
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 700;
-  font-size: 1.875rem;
-  color: hsl(0deg, 0%, 100%);
-}
-
-.footer-box p {
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 400;
-  font-size: 1.25rem;
-  color: hsl(0deg, 0%, 100%);
-}
-
 .bg-perfil {
   background-color: hsl(14deg, 69%, 63%);
 }
@@ -13919,4 +13880,13 @@ p {
   border-radius: 2em;
   border-color: hsl(14deg, 69%, 63%);
   width: 50rem;
+}
+.sec-perfil a {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: hsl(14deg, 86%, 30%);
+  color: hsl(14deg, 86%, 30%);
+  font-style: normal;
+  font-family: "Source Sans Pro", sans-serif;
 }
