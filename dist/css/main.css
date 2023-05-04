@@ -13391,9 +13391,8 @@ header h1 {
   font-weight: 700;
   font-size: 3.438rem;
   color: hsl(0deg, 0%, 100%);
-  text-align: left;
-  width: 70%;
   margin-left: 10%;
+  text-align: center;
 }
 header p {
   font-family: "Source Sans Pro", sans-serif;
@@ -13401,7 +13400,6 @@ header p {
   font-size: 1.875rem;
   color: hsl(0deg, 0%, 100%);
   text-align: center;
-  width: 85%;
   margin-left: 10%;
 }
 
@@ -13649,9 +13647,8 @@ header h1 {
   font-weight: 700;
   font-size: 3.438rem;
   color: hsl(0deg, 0%, 100%);
-  text-align: left;
-  width: 70%;
   margin-left: 10%;
+  text-align: center;
 }
 
 header p {
@@ -13660,7 +13657,6 @@ header p {
   font-size: 1.875rem;
   color: hsl(0deg, 0%, 100%);
   text-align: center;
-  width: 85%;
   margin-left: 10%;
 }
 

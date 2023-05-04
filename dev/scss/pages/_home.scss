@@ -7,16 +7,16 @@
 header{
     h1{
         @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-xmed, variables.$clr-white);
-        text-align: left;
-        width: 70%;
-        margin-left: 10%
+       
+        margin-left: 10%;
+        text-align: center;
         
     }
     
     p{
         @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-sm, variables.$clr-white);
         text-align: center;
-        width: 85%;
+        
         margin-left: 10%
 
     }
