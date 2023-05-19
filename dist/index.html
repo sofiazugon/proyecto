@@ -42,7 +42,13 @@
           </div>
         </div>
       </div>
+      
       <!-- Modal -->
+
+       <!--<recipe-details :name="recipe.name" :image="recipe.image"
+            :instructions="recipe.instructions"
+            :time="recipe.ingredients"></recipe-details>-->
+
         <!-- header section -->
           
         <header class=" position-relative">
@@ -100,18 +106,20 @@
               <h2 class="mb-2">Recetas</h2>
 
               <section class="row">
-
-                <!--<div v-for="(item, index) in recipes">
-                  <p>{{ item.category }}</p>
-                </div>-->
-
+                
                 <div v-if="hasRecipes" v-for="(item, index) in recipes" class="col-md-3">
+                  <recipe-card :image="item.image" :category="item.category" :name="item.name"
+                    :description="item.instructions" :time="item.time" :level="item.level" :likes="item.likes"
+                    :index="item.id" v-on:recipelike="onClickRecipeLike" v-on:recipeunlike="onClickRecipeUnlike"
+                    v-on:recipedetails="onClickRecipeDetails">
+                </recipe-card>
+                  <!--
                   <div class="card-detail p-4">
                       <img v-bind:src="item.image" class="card-img-top rounded" alt="featured recipe">
                       <div class=" p-0">
                           <h2 class="mt-2">{{ item.category }}</h2>
-                          <h1 class="card-title">{{ item.name }}</h1>
-                          <p class="card-text">{{ item.description }}</p>
+                          <h1 >{{ item.name }}</h1>
+                          <p >{{ item.description }}</p>
                           <p>{{ item.time }}</p>
                           <p>{{ item.level }}</p>
                           <p>{{ item.likes }}</p>
@@ -121,70 +129,11 @@
                           <button class="btn red-btn" v-on:click="onClickViewRecipe(index)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ver Receta</button>
                         </div>
                       </div>
-                  </div>
+                  </div> -->
+                  
                 </div>
                 <p v-else class="fs-3 fw-bold">No hay recetas para esta categoria!</p>
 
-                <!-- 
-                  <div class="col-sm">
-                      <div class="card p-3">
-                          <img src="./images/featured-recipe.jpg" class="card-img-top rounded" alt="featured recipe">
-                          <div class="card-body p-0">
-                              <p class="mt-2">Rice</p>
-                              <h5 class="card-title">Satay sweet potato vegan curry</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <p>20 min</p>
-                              <p>Easy</p>
-                              <p>{{ likes }}</p>
-                              <button class="btn btn-danger" v-on:click="onClickLike">Like</button>
-                              <button class="btn btn-success" v-on:click="onClickUnlike">Unlike</button>
-                              <a href="#" class="btn btn-primary">View Recipe</a>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="col-sm">
-                      <div class="card p-3">
-                          <img src="./images/featured-recipe.jpg" class="card-img-top rounded" alt="featured recipe">
-                          <div class="card-body p-0">
-                              <p class="mt-2">Rice</p>
-                              <h5 class="card-title">Satay sweet potato vegan curry</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <p>20 min</p>
-                              <p>Easy</p>
-                              <a href="#" class="btn btn-primary">View Recipe</a>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="col-sm">
-                      <div class="card p-3">
-                          <img src="./images/featured-recipe.jpg" class="card-img-top rounded" alt="featured recipe">
-                          <div class="card-body p-0">
-                              <p class="mt-2">Rice</p>
-                              <h5 class="card-title">Satay sweet potato vegan curry</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <p>20 min</p>
-                              <p>Easy</p>
-                              <a href="#" class="btn btn-primary">View Recipe</a>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="col-sm">
-                      <div class="card p-3">
-                          <img src="./images/featured-recipe.jpg" class="card-img-top rounded" alt="featured recipe">
-                          <div class="card-body p-0">
-                              <p class="mt-2">Rice</p>
-                              <h5 class="card-title">Satay sweet potato vegan curry</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <p>20 min</p>
-                              <p>Easy</p>
-                              <a href="#" class="btn btn-primary">View Recipe</a>
-                          </div>
-                      </div>
-                  </div>
-                -->
 
               </section>
           </section>
@@ -230,101 +179,7 @@
                   </div>
                 </section>
               </section>
-                <!--- <div class="col-sm">
-                      <div class="card mb-3">
-                          <div class="row g-0">
-                            <div class="col-md-4">
-                              <img src="./images/best-recipe.jpg" class="img-fluid rounded m-2" alt="best recipe">
-                            </div>
-                            <div class="col-md-8">
-                              <div class="card-body pt-0">
-                                  <p class="mt-2 mb-0">Rice</p>
-                                  <h5 class="card-title">Goan-style vegetable curry with kitchari</h5>
-                                  <p class="card-text mb-0">Eat all 5 of your 5-a-day in one delicious curry, served with</p>
-                                  <p class="mb-0">20 min</p>
-                                  <p class="mb-0">Easy</p>
-                                  <a href="#" class="btn btn-primary">View Recipe</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                  </div>
-              </section>
-              <section class="row">
-                  <div class="col-sm">
-                      <div class="card mb-3">
-                          <div class="row g-0">
-                            <div class="col-md-4">
-                              <img src="./images/best-recipe.jpg" class="img-fluid rounded m-2" alt="best recipe">
-                            </div>
-                            <div class="col-md-8">
-                              <div class="card-body pt-0">
-                                  <p class="mt-2 mb-0">Rice</p>
-                                  <h5 class="card-title">Goan-style vegetable curry with kitchari</h5>
-                                  <p class="card-text mb-0">Eat all 5 of your 5-a-day in one delicious curry, served with</p>
-                                  <p class="mb-0">20 min</p>
-                                  <p class="mb-0">Easy</p>
-                                  <a href="#" class="btn btn-primary">View Recipe</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                  </div>
-                  <div class="col-sm">
-                      <div class="card mb-3">
-                          <div class="row g-0">
-                            <div class="col-md-4">
-                              <img src="./images/best-recipe.jpg" class="img-fluid rounded m-2" alt="best recipe">
-                            </div>
-                            <div class="col-md-8">
-                              <div class="card-body pt-0">
-                                  <p class="mt-2 mb-0">Rice</p>
-                                  <h5 class="card-title">Goan-style vegetable curry with kitchari</h5>
-                                  <p class="card-text mb-0">Eat all 5 of your 5-a-day in one delicious curry, served with</p>
-                                  <p class="mb-0">20 min</p>
-                                  <p class="mb-0">Easy</p>
-                                  <a href="#" class="btn btn-primary">View Recipe</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                  </div>
-              </section>
-              <section class="row">
-                  <div class="col-sm">
-                      <div class="card mb-3">
-                          <div class="row g-0">
-                            <div class="col-md-4">
-                              <img src="./images/best-recipe.jpg" class="img-fluid rounded-start" alt="best recipe">
-                            </div>
-                            <div class="col-md-8">
-                              <div class="card-body">
-                                <h5 class="card-title">Goan-style vegetable curry with kitchari</h5>
-                                <p class="card-text">Eat all 5 of your 5-a-day in one delicious curry, served with brown rice and lentils. It's healthy, vegan, gluten-free and provides vitamin C and iron, too.</p>
-                                <a href="#" class="btn btn-primary">View Recipe</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                  </div>
-                  <div class="col-sm">
-                      <div class="card mb-3">
-                          <div class="row g-0">
-                            <div class="col-md-4">
-                              <img src="./images/best-recipe.jpg" class="img-fluid rounded-start" alt="best recipe">
-                            </div>
-                            <div class="col-md-8">
-                              <div class="card-body">
-                                <h5 class="card-title">Goan-style vegetable curry with kitchari</h5>
-                                <p class="card-text">Eat all 5 of your 5-a-day in one delicious curry, served with brown rice and lentils. It's healthy, vegan, gluten-free and provides vitamin C and iron, too.</p>
-                                <a href="#" class="btn btn-primary">View Recipe</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                  </div>
-              </section>
-          </section> -->
+                         
           <!-- best recipes -->
           </section> <!--fin body section-->
         <!-- footer -->
@@ -353,7 +208,11 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- main script -->
     <script src="./js/main.js"></script>
+    <script src="js/components/RecipeDetails.js"></script>
+    <script src="js/components/RecipeCard.js"></script>
     <!-- mounted -->
+     <!-- Axios - API recipes-->
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
       const mountedApp = app.mount("#app");
     </script>
