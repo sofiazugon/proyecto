@@ -65,9 +65,12 @@ app.component('recipe-card',{
         <p>{{ level }}</p>
         <p>{{ likes }}</p>
         <div class="nav">
-            <button class="btn lred-btn" v-on:click="onClickLike(index)">Like</button>
+            <button class="btn red-btn" v-on:click="onClickLike(index)">Like</button>
             <button class="btn nred-btn" v-on:click="onClickUnlike(index)">Dislike</button>
-            <button class="btn red-btn" v-on:click="onClickViewRecipe(index)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ver Receta</button>
+            </div>
+        <div>
+        <button class="btn lred-btn" v-on:click="onClickViewRecipe(index)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ver Receta</button>
+        
         </div>
     </div>
 </div>`

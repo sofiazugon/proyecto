@@ -5,9 +5,8 @@
 
 .card-detail{
     display: block;
-    border: 1px solid;
-    border-color: variables.$clr-red;
-    border-width: .2rem;
+    border: 1px;
+    background-color: variables.$clr-dred;
     border-radius: 1rem;
     padding-top: 2rem;
     padding-left: 2rem;
@@ -15,17 +14,17 @@
 
 
     h1{
-        @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-xsm, variables.$clr-nred);
+        @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-xsm, variables.$clr-white);
         padding: .2rem;
 
     }
     h2{
-        @include typography.set-font(variables.$ff, variables.$fw-semibold, variables.$fs-sm, variables.$clr-red);
+        @include typography.set-font(variables.$ff, variables.$fw-semibold, variables.$fs-sm, variables.$clr-white);
         padding: .2rem;
 
     }
     p{
-        @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-xxsm, variables.$clr-dark);
+        @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-xxsm, variables.$clr-white);
         padding: .2rem;
 
     }

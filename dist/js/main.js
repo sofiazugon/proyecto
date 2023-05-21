@@ -54,7 +54,7 @@ const app = Vue.createApp({
                         time: "20 mins",
                         level: "Easy",
                         likes: 18,
-                        ingredients: "NA",
+                        ingredients: element.extendedIngredients, //(.aisle)cuando trato de poner los ingredientes se ponen las otras recetas y se quitan las del api
                         instructions: "NA"
                     });
                     if(items.length > 0) this.loading = false;
@@ -118,6 +118,9 @@ const app = Vue.createApp({
         onClickRecipeDetails(index){
             
             console.log("RECIPE ID -" + index );
+            
+
+
             //get recipe details
             axios({
                 method: 'get',

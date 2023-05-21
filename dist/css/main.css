@@ -13571,9 +13571,8 @@ p {
 
 .card-detail {
   display: block;
-  border: 1px solid;
-  border-color: hsl(14deg, 69%, 63%);
-  border-width: 0.2rem;
+  border: 1px;
+  background-color: hsl(14deg, 59%, 47%);
   border-radius: 1rem;
   padding-top: 2rem;
   padding-left: 2rem;
@@ -13585,21 +13584,21 @@ p {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 700;
   font-size: 1.563rem;
-  color: hsl(14deg, 86%, 30%);
+  color: hsl(0deg, 0%, 100%);
   padding: 0.2rem;
 }
 .card-detail h2 {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 600;
   font-size: 1.875rem;
-  color: hsl(14deg, 69%, 63%);
+  color: hsl(0deg, 0%, 100%);
   padding: 0.2rem;
 }
 .card-detail p {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
   font-size: 1.375rem;
-  color: hsl(200deg, 19%, 18%);
+  color: hsl(0deg, 0%, 100%);
   padding: 0.2rem;
 }
 
@@ -13885,4 +13884,49 @@ p {
   color: hsl(14deg, 86%, 30%);
   font-style: normal;
   font-family: "Source Sans Pro", sans-serif;
+}
+
+.container-view {
+  position: relative;
+}
+
+.container-slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 2px;
+  width: 1000px;
+  height: 700px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.slider-img {
+  margin: 3px;
+}
+
+.container-control {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #02293b;
+  cursor: pointer;
+  -o-object-fit: contain;
+     object-fit: contain;
+  padding: 10px;
+}
+
+.prev {
+  left: 0;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.next {
+  right: 0;
+  top: 50%;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
 }
