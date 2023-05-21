@@ -13886,6 +13886,23 @@ p {
   font-family: "Source Sans Pro", sans-serif;
 }
 
+.cont-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .container-view {
   position: relative;
 }
@@ -13895,8 +13912,8 @@ p {
   display: -ms-flexbox;
   display: flex;
   padding: 2px;
-  width: 1000px;
-  height: 700px;
+  width: 1300px;
+  height: 750px;
   overflow: hidden;
   scroll-behavior: smooth;
 }
@@ -13908,9 +13925,9 @@ p {
 .container-control {
   position: absolute;
   width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: #02293b;
+  height: 70px;
+  border-radius: 30%;
+  background: hsl(14deg, 69%, 63%);
   cursor: pointer;
   -o-object-fit: contain;
      object-fit: contain;

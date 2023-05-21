@@ -16,10 +16,10 @@
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>   
-
+<section class="cont-body">
     <div class=" container-view">
         <img class="container-control prev " src="images/img1.png" alt="">
-        <div class="container-slider slider slider-img">
+        <div v-if="hasRecipes" v-for="(item, index) in recipes" class="container-slider slider slider-img">
             <recipe-card :image="item.image" :category="item.category" :name="item.name"
             :description="item.instructions" :time="item.time" :level="item.level" :likes="item.likes"
             :index="item.id" v-on:recipelike="onClickRecipeLike" v-on:recipeunlike="onClickRecipeUnlike"
@@ -137,7 +137,7 @@
               </div>
             </div>
         </div> 
-        -->
+        
             <!---<img src="https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
             <img class="slider-img" src="https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
             <img class="slider-img" src="https://images.pexels.com/photos/2775196/pexels-photo-2775196.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
@@ -150,6 +150,7 @@
         </div>
         <img class="container-control next slider-img" src="images/img2.png" alt="">
     </div>
+  </section>
     <!-- VueJS -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- main script -->
