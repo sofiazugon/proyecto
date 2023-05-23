@@ -6,12 +6,20 @@ const app = Vue.createApp({
             description: "Librería de Recetas",
             likes: 25,
             categories:[
-                {id:1, name:"All"},
-                {id:2, name:"Lunch"},
-                {id:3, name:"Desserts"},
-                {id:4, name:"Fastfood"},
-                {id:5, name:"Breakfast"},
-                {id:6, name:"Drinks"}
+                {name: 'main course'},
+                {name: 'side dish'},
+                {name: 'dessert'},
+                {name: 'appetizer'},
+                {name: 'salad'},
+                {name: 'bread'},
+                {name: 'breakfast'},
+                {name: 'soup'},
+                {name: 'beverage'},
+                {name: 'sauce'},
+                {name: 'marinade'},
+                {name: 'fingerfood'},
+                {name: 'snack'},
+                {name: 'drink'},
             ],
             all_recipes:[],
             recipe: {},
@@ -157,6 +165,47 @@ const app = Vue.createApp({
             );
 
         },
-    },
-   
-});
+        onClickSelectedCategory(category){
+
+         //get recipies by category new api
+         axios({
+             method: 'get',
+             url: 'https://api.spoonacular.com/recipes/complexSearch?type='+category+'&apiKey=46a13d5468ba438c8724e4d6ae813861'
+         })
+         .then(
+             (response) => {
+                 let items = response.data.results;
+                 console.log(items);
+                 this.recipes =[];
+ 
+                 if(items.length > 0) this.loading =false;
+ 
+                 items.forEach( element => {
+                     this.recipes.push({
+                         id: element.id,
+                         image: element.image,
+                         name: element.title,
+                         category: 'main course',
+                         time: "20 mins",
+                         level: "Easy",
+                         likes: 18,
+                         ingredients: "NA",
+                         instructions: "NA"
+                     });
+                     if(items.length > 0) this.loading = false;
+                 })
+             }
+         )
+         .catch(
+             error => console.log(error)
+         );
+         }
+     }
+ });
+ 
+    //init custom events for components
+ const emitter= new mitt();
+ 
+ //global property for custom events
+ app.config.globalProperties.$test = emitter;
+    

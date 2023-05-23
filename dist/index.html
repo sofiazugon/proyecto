@@ -58,10 +58,9 @@
               <div><img src="images/Logo-cook-it.png" alt="logo"></div>
               <div>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li v-for="(category, index) in categories" class="nav-item">
-                      <button class="btn" v-on:click="onClickCategory(category.name)" aria-current="page">{{ category.name }}</button>
-                      
-                  </li>
+                  <button class="btn">Inicio</button>
+                  <button class="btn">Favoritos</button>
+                  <button class="btn">Crear cuenta</button>
                   <button class="btn">Mi Cuenta</button>
                   
               </ul>
@@ -79,6 +78,18 @@
           <div>
             <img v-bind:src="image" class="img-fluid" alt="header">
           </div>
+          <nav class="navbar align-content-center col-md-12 navbar-box navbar-expand-lg">
+            <div class="container-fluid">
+              <div>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li v-for="(category, index) in categories" class="nav-item">
+                    <recipe-category-button :name="category.name"
+                    v-on:selectedcategory="onClickSelectedCategory"></recipe-category-button> 
+                  </li> 
+              </ul>
+              </div>
+            </div>
+        </nav>
           
             <div class=" position-absolute top-50 start-50 translate-middle">
                 <h1>{{ title }}</h1>

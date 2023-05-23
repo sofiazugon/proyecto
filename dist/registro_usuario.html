@@ -20,30 +20,38 @@
         <!--Nav-->
         
             
-            <div class="bg-perfil ">
-                <header class="container col-md-2">
-                    <nav class="navbar navbar-box  navbar-expand-lg">
-                        <div class="container-fluid">
-                            <ul class="navbar-nav me-auto">
-                                <button class="btn">Inicio</button>
-                                <button class="btn">Anterior</button>
-                                <button class="btn">Ya tengo cuenta</button>
-                            </ul>
-                        </div>
-                    </nav>
+        <header class=" position-relative">
+            <nav class="navbar col-md-12 navbar-box navbar-expand-lg">
+              <div class="container-fluid">
+                <div><img src="images/Logo-cook-it.png" alt="logo"></div>
+                <div>
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <button class="btn">Inicio</button>
+                    <button class="btn">Favoritos</button>
+                    <button class="btn">Ya tengo cuenta</button>
+                    
+                </ul>
+                </div>
                     <div>
-                        <img class="align-items-center img-fluid" src="images/Logo-cook-it.png" alt="Logo-cook-it">
+                      <form class="d-flex" role="search">
+                      <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                      <button class="btn btn-outline-success" type="submit">Buscar</button>
+                      </form>
                     </div>
-                    <div >
-                        <h1>Registro de Usuario</h1>
-                    </div>
-                </header>
+                
+              </div>
+          </nav>
+          <div>
+            <div class="align-content-center">
+              <img src="images/perfil.png" class="img-fluid align-items-center" width="200" alt="header">
             </div>
-        
+          </div>
+        </header>
         <!--Nav-->
 
         <section class="container-lg sec-perfil">
-            <h1>Ingresa tus datos</h1>
+            <h1>Registro de Usuario</h1>
+            <p>No tienes cuenta? Ingresa tus datos aquí para quedar registrado.</p>
             <section class="row">
                 <h2>Nombre:</h2>
                 <input type="text">

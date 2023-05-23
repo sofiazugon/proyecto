@@ -61,6 +61,10 @@
         
 
     }
+    p{
+        @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-xsm, variables.$clr-dark);
+    }
+
 }
 
 

@@ -13885,6 +13885,12 @@ p {
   font-style: normal;
   font-family: "Source Sans Pro", sans-serif;
 }
+.sec-perfil p {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  font-size: 1.563rem;
+  color: hsl(200deg, 19%, 18%);
+}
 
 .cont-body {
   display: -webkit-box;
@@ -13905,6 +13911,9 @@ p {
 
 .container-view {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .container-slider {
