@@ -13422,6 +13422,12 @@ h2 {
   font-size: 1.25rem;
   color: hsl(0deg, 0%, 100%);
 }
+.navbar-box a {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: hsl(0deg, 0%, 100%);
+}
 .navbar-box p {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
@@ -13570,12 +13576,14 @@ p {
 }
 
 .card-detail {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   border: 1px;
   background-color: hsl(14deg, 59%, 47%);
   border-radius: 1rem;
+  padding: 2rem;
   padding-top: 2rem;
-  padding-left: 2rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -13674,6 +13682,13 @@ h2 {
 }
 
 .navbar-box button {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: hsl(0deg, 0%, 100%);
+}
+
+.navbar-box a {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 700;
   font-size: 1.25rem;
@@ -13872,9 +13887,14 @@ p {
   width: 10rem;
 }
 .sec-perfil input {
-  border-radius: 2em;
+  border-radius: 1em;
+  border-width: 4px;
   border-color: hsl(14deg, 69%, 63%);
   width: 50rem;
+  height: 3rem;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 .sec-perfil a {
   font-family: "Source Sans Pro", sans-serif;
@@ -13929,6 +13949,7 @@ p {
 
 .slider-img {
   margin: 3px;
+  padding-right: 3rem;
 }
 
 .container-control {

@@ -16,7 +16,7 @@
     <title>Cook It</title>
 </head>
 <body>
-    <section>
+    <section id="app">
         <!--Nav-->
         
             
@@ -26,9 +26,9 @@
                 <div><img src="images/Logo-cook-it.png" alt="logo"></div>
                 <div>
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <button class="btn">Inicio</button>
+                    <a class="btn" href="index.html">Inicio</a>
                     <button class="btn">Favoritos</button>
-                    <button class="btn">Ya tengo cuenta</button>
+                    <a class="btn" href="iniciar_sesion.html">Ya tengo cuenta</a>
                     
                 </ul>
                 </div>
@@ -49,7 +49,7 @@
         </header>
         <!--Nav-->
 
-        <section class="container-lg sec-perfil">
+        <section class="container container-lg sec-perfil">
             <h1>Registro de Usuario</h1>
             <p>No tienes cuenta? Ingresa tus datos aquí para quedar registrado.</p>
             <section class="row">
@@ -91,9 +91,24 @@
             <p class="mb-0 text-center">© 2023 CookIt.</p>
         </footer>
         <!-- footer -->
-
+ 
     </section>
-
+<!-- VueJS -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<!-- main script -->
+<script src="./js/main.js"></script>
+<script src="./js/component.js"></script>
+<script src="js/components/RecipeDetails.js"></script>
+<script src="js/scroll.js"></script>
+<script src="js/components/RecipeCategoryButton.js"></script>
+<script src="js/components/RecipeCard.js"></script>
+<!-- mounted -->
+ <!-- Axios - API recipes-->
+ <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  const mountedApp = app.mount("#app");
+</script>
 
 
 </body>
+</html>

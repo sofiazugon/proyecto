@@ -34,6 +34,10 @@ h2{
         @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-xxxsm, variables.$clr-white);
     }
     
+    a{
+        @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-xxxsm, variables.$clr-white);
+    }
+
     p{
         @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-xsm, variables.$clr-white);
         

@@ -4,12 +4,12 @@
 //@use '.../dist/js/component.js';
 
 .card-detail{
-    display: block;
+    display: flex;
     border: 1px;
     background-color: variables.$clr-dred;
     border-radius: 1rem;
+    padding: 2rem;
     padding-top: 2rem;
-    padding-left: 2rem;
     align-items: center;
 
 
