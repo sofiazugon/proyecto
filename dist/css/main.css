@@ -13912,6 +13912,20 @@ p {
   color: hsl(200deg, 19%, 18%);
 }
 
+.secodaryBg {
+  background-color: hsl(14deg, 69%, 63%);
+  opacity: 50%;
+  border-radius: 2rem;
+}
+.secodaryBg h2 {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 600;
+  font-size: 1.375rem;
+  color: hsl(14deg, 59%, 47%);
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}
+
 .cont-body {
   display: -webkit-box;
   display: -ms-flexbox;

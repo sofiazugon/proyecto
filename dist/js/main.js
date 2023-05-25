@@ -107,6 +107,17 @@ const app = Vue.createApp({
                 }
             }
         },
+
+        onClickSearchRecipe(name){
+            if(this.recipes = this.title){
+                let searchRecipe = this.recipes.title.filter(function(el){
+                    return el.repices = name;
+                });
+            }else{
+                "Recipe not found";
+            }
+        },
+
         onClickViewRecipe(index){
             this.selectedIndex = index;
         },

@@ -67,8 +67,20 @@
     }
     p{
         @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-xsm, variables.$clr-dark);
-    }
+    } 
 
 }
 
+.secodaryBg{
+    h2{
+        @include typography.set-font(variables.$ff, variables.$fw-semibold, variables.$fs-xxsm, variables.$clr-dred);
+        
+        padding-bottom:2rem ;
+        padding-top:2rem ;
+    }
+    background-color: variables.$clr-red;
+    opacity: 50%;
+    border-radius:2rem;
+    
+}
 
