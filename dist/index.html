@@ -1,136 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-    <!-- Google Fonts -->
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <link rel="stylesheet" href="./css/main.css">
-    <title>Cook It</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+    integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+    crossorigin="anonymous"></script>
+  <!-- Bootstrap JS -->
+  <link rel="stylesheet" href="./css/main.css">
+  <title>Cook It</title>
 </head>
+
 <body>
 
-    <section id="app">
+  <section id="app">
 
-      <!-- Modal -->
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-style">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 id="staticBackdropLabel">{{ recipes[selectedIndex].name }}</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body row">
-              <img class="d-block m-auto img-fluid" v-bind:src="recipes[selectedIndex].image" alt="{{ recipes[selectedIndex].name }}">
-              <p>Ingredientes</p>
-              <h2 class="text-center fs-6">{{ recipes[selectedIndex].ingredients }}</h2>
-              <p>Preparacion</p>
-              <h3 class="fst-italic fw-light fs-5">{{ recipes[selectedIndex].instructions }}</h3>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn lred-btn" v-on:click="onClickPrev()">Anterior</button>
-              <button type="button" class="btn nred-btn" v-on:click="onClickNext()">Siguiente</button>
-              <button type="button" class="btn red-btn" data-bs-dismiss="modal">Cerrar</button>
-            </div>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-style">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 id="staticBackdropLabel">{{ recipes[selectedIndex].name }}</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body row">
+            <img class="d-block m-auto img-fluid" v-bind:src="recipes[selectedIndex].image"
+              alt="{{ recipes[selectedIndex].name }}">
+            <p>Ingredientes</p>
+            <h2 class="text-center fs-6">{{ recipes[selectedIndex].ingredients }}</h2>
+            <p>Preparacion</p>
+            <h3 class="fst-italic fw-light fs-5">{{ recipes[selectedIndex].instructions }}</h3>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn lred-btn" v-on:click="onClickPrev()">Anterior</button>
+            <button type="button" class="btn nred-btn" v-on:click="onClickNext()">Siguiente</button>
+            <button type="button" class="btn red-btn" data-bs-dismiss="modal">Cerrar</button>
           </div>
         </div>
-        
       </div>
-      
-      <!-- Modal--> 
 
-         <!--header section -->
-          
-        <header class=" position-relative">
-          <nav class="navbar col-md-12 navbar-box navbar-expand-lg">
-            <div class="container-fluid">
-              <div><img src="images/Logo-cook-it.png" alt="logo"></div>
-              <div>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <a class="btn" href="index.html">Inicio</a>
-                  <button class="btn">Favoritos</button>
-                  <a class="btn" href="registro_usuario.html">Crear cuenta</a>
-                  <a class="btn" href="perfil.html">Mi Perfil</a>
-                  
-              </ul>
-              </div>
-                  <div>
-                    <form class="d-flex" role="search">
-                    <input v-on:onClickSearchRecipe class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                    </form>
-                  </div>
-              
-            </div>
-        </nav>
-        <div>
+    </div>
+
+    <!-- Modal-->
+
+    <!--header section -->
+
+    <header class=" position-relative">
+      <nav class="navbar col-md-12 navbar-box navbar-expand-lg">
+        <div class="container-fluid">
+          <div><img src="images/Logo-cook-it.png" alt="logo"></div>
           <div>
-            <img v-bind:src="image" class="img-fluid" alt="header">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <a class="btn" href="index.html">Inicio</a>
+              <button class="btn">Favoritos</button>
+              <a class="btn" href="registro_usuario.html">Crear cuenta</a>
+              <a class="btn" href="perfil.html">Mi Perfil</a>
+
+            </ul>
           </div>
-          <nav class="navbar align-content-center col-md-12 navbar-box navbar-expand-lg">
-            <div class="container-fluid">
-              <div>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li v-for="(category, index) in categories" class="nav-item">
-                    <recipe-category-button :name="category.name"
-                    v-on:selectedcategory="onClickSelectedCategory"></recipe-category-button> 
-                  </li> 
-              </ul>
-              </div>
-            </div>
-        </nav>
-          
-            <div class=" position-absolute top-50 start-50 translate-middle">
-                <h1>{{ title }}</h1>
-                <p>{{ description }}</p>
-            </div>
+          <div>
+            <form class="d-flex" role="search">
+              <input v-on:onClickSearchRecipe class="form-control me-2" type="search" placeholder="Buscar"
+                aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+          </div>
+
         </div>
-            
-        </header>
-        
-       
-        <!-- header section -->
-
-        <!-- welcome -->
-        <section class="container"> <!--inicio body section-->
-
-        
-          <section class="row mt-4">
-              <h2 class="text-center">Bienvenido a Cook It, aquí podrás compartir 
-                y observar variedad de recetas.</h2>
-              <p>Nuestro sitio web también presenta colecciones de recetas para ocasiones especiales, como días festivos, cumpleaños y aniversarios, así como restricciones dietéticas, como sin gluten, vegetarianas y veganas. Con nuestra diversa selección de recetas, puede satisfacer sus antojos y explorar nuevos sabores sin sacrificar sus necesidades dietéticas.</p>
-          </section>
-          <!-- welcome -->
-
-          <!-- featured recipes -->
-          <section class="row">
-              <h2 class="mb-2">Recetas</h2>
-              
-                <!--<recipe-details :name="recipe.name" :image="recipe.image"
-                    :instructions="recipe.instructions"
-                    :time="recipe.ingredients"></recipe-details>
-                    <recipe-details :name="recipe.name" :image="recipe.image"
-            :instructions="recipe.instructions"
-            :time="recipe.ingredients"></recipe-details> -->
+      </nav>
+      <div>
+        <div>
+          <img v-bind:src="image" class="img-fluid" alt="header">
+        </div>
+        <nav class="navbar align-content-center col-md-12 navbar-box navbar-expand-lg">
+          <div class="container-fluid">
+            <div>
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li v-for="(category, index) in categories" class="nav-item">
+                  <recipe-category-button :name="category.name"
+                    v-on:selectedcategory="onClickSelectedCategory"></recipe-category-button>
+                </li>
+              </ul>
             </div>
-                <section class="row">
-                  <div v-for="(item, index) in recipes" class="col-md-3 card-detail">
-                      <recipe-card :image="item.image" :category="item.category" :name="item.name"
-                          :description="item.instructions" :time="item.time" :level="item.level" :likes="item.likes"
-                          :index="item.id" v-on:recipelike="onClickRecipeLike" v-on:recipeunlike="onClickRecipeUnlike"
-                          v-on:recipedetails="onClickRecipeDetails">
-                      </recipe-card>
-                  </div>
-              </section>
-                    
-                      <!--
+          </div>
+        </nav>
+
+        <div class=" position-absolute top-50 start-50 translate-middle">
+          <h1>{{ title }}</h1>
+          <p>{{ description }}</p>
+        </div>
+      </div>
+
+    </header>
+
+
+    <!-- header section -->
+
+    <!-- welcome -->
+    <section class="container"> <!--inicio body section-->
+
+
+      <section class="row mt-4">
+        <h2 class="text-center">Bienvenido a Cook It, aquí podrás compartir
+          y observar variedad de recetas.</h2>
+        <p>Nuestro sitio web también presenta colecciones de recetas para ocasiones especiales, como días festivos,
+          cumpleaños y aniversarios, así como restricciones dietéticas, como sin gluten, vegetarianas y veganas. Con
+          nuestra diversa selección de recetas, puede satisfacer sus antojos y explorar nuevos sabores sin sacrificar
+          sus necesidades dietéticas.</p>
+      </section>
+      <!-- welcome -->
+
+      <!-- featured recipes -->
+      <section class="row">
+        <h2 class="mb-2">Recetas</h2>
+
+        <!--<recipe-details :name="recipe.name" :image="recipe.image"
+                    :instructions="recipe.instructions"
+                    :time="recipe.ingredients"></recipe-details> -->
+
+        <recipe-details :name="recipe.name" :image="recipe.image" :instructions="recipe.instructions"
+          :ingredients="recipe.ingredients"></recipe-details>
+
+        </div>
+        <section class="row">
+          <div v-for="(item, index) in recipes" class="col-md-3 card-detail">
+            <recipe-card :image="item.image" :category="item.category" :name="item.name"
+              :description="item.instructions" :time="item.time" :level="item.level" :likes="item.likes"
+              :index="item.id" v-on:recipelike="onClickRecipeLike" v-on:recipeunlike="onClickRecipeUnlike"
+              v-on:recipedetails="onClickRecipeDetails">
+            </recipe-card>
+          </div>
+        </section>
+
+        <!--
                       <div class="card-detail p-4">
                           <img v-bind:src="item.image" class="card-img-top rounded" alt="featured recipe">
                           <div class=" p-0">
@@ -142,93 +153,98 @@
                   </div>
                           </div>
                       </div> -->
-                      
-                    </div>
-                    <p class="fs-3 fw-bold">No hay recetas para esta categoria!</p>
-                   </div>
+
+        </div>
+        <p class="fs-3 fw-bold">No hay recetas para esta categoria!</p>
+        </div>
+        </div>
+
+      </section>
+      <!-- featured recipes -->
+
+      <!--Recomendaciones-->
+
+      <section class="pt-5">
+        <h2>Recomendaciones</h2>
+        <section class="container col-md-7">
+          <div class="row"><iframe src="https://assets.pinterest.com/ext/embed.html?id=154459462210689299" height="445"
+              width="345" frameborder="0" scrolling="no"></iframe></div>
+          <div class="row">
+            <p class="p-med text-center pt-2">Recuerda mantener tu zona de cocina siempre limpia y organizada.
+              <br>Utiliza ingredientes frescos y que no esten vencidos. <br>En Cook It encontraras variedad de recetas.
+            </p>
+          </div>
+
+        </section>
+      </section>
+
+      <!--Recomendaciones-->
+
+      <!-- best recipes -->
+      <section class="row pt-5">
+        <h2>Mejores Recetas</h2>
+        <section class="row">
+          <div v-if="hasRecipes" v-for="(item, index) in recipes" class="col-md-5">
+            <div class="card card-detail mb-3">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img v-bind:src="item.image" class="card-img-top rounded" alt="featured recipe">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body pt-0">
+                    <h2 class="mt-2 mb-0">{{ item.category }}</h2>
+                    <h1 class="card-title">{{ item.name }}</h1>
+                    <p class="card-text mb-0">{{ item.description }}</p>
+                    <p class="mb-0">{{ item.time }}</p>
+                    <p class="mb-0">{{ item.level }}</p>
+                    <button class="btn red-btn" v-on:click="onClickViewRecipe(index)" data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop">Ver Receta</button>
                   </div>
-                
-          </section>
-          <!-- featured recipes -->
-
-          <!--Recomendaciones-->
-
-          <section class="pt-5">
-            <h2>Recomendaciones</h2>
-            <section class="container col-md-7">
-              <div class="row"><iframe src="https://assets.pinterest.com/ext/embed.html?id=154459462210689299" height="445" width="345" frameborder="0" scrolling="no" ></iframe></div>
-              <div class="row">
-                <p class="p-med text-center pt-2">Recuerda mantener tu zona de cocina siempre limpia y organizada. <br>Utiliza ingredientes frescos y que no esten vencidos. <br>En Cook It encontraras variedad de recetas.</p>
+                </div>
               </div>
+            </div>
+          </div>
+        </section>
+      </section>
 
-            </section>
-          </section>
+      <!-- best recipes -->
+    </section> <!--fin body section-->
+    <!-- footer -->
+    <footer class="row text-center navbar-box container-fluid ">
+      <ul class="nav col-md-12 justify-content-center">
+        <li class="nav-item">
+          <button class="nav-link active" aria-current="page" href="#">Contactenos</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" href="#">Terminos y Condiciones</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" href="#">Politicas de Privacidad</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" href="#">Accesibilidad</button>
+        </li>
+      </ul>
+      <p class="mb-0 text-center">CookIt es una marca registrada, derechos reservados.</p>
+      <p class="mb-0 text-center">© 2023 CookIt.</p>
+    </footer>
+    <!-- footer -->
 
-          <!--Recomendaciones-->
-
-          <!-- best recipes -->
-          <section class="row pt-5">
-              <h2>Mejores Recetas</h2>
-              <section class="row">
-                  <div v-if="hasRecipes" v-for="(item, index) in recipes" class="col-md-5" >
-                      <div class="card card-detail mb-3">
-                          <div class="row g-0">
-                            <div class="col-md-4">
-                              <img v-bind:src="item.image" class="card-img-top rounded" alt="featured recipe">
-                            </div>
-                            <div class="col-md-8">
-                              <div class="card-body pt-0">
-                                  <h2 class="mt-2 mb-0">{{ item.category }}</h2>
-                                  <h1 class="card-title">{{ item.name }}</h1>
-                                  <p class="card-text mb-0">{{ item.description }}</p>
-                                  <p class="mb-0">{{ item.time }}</p>
-                                  <p class="mb-0">{{ item.level }}</p>
-                                  <button class="btn red-btn" v-on:click="onClickViewRecipe(index)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ver Receta</button>
-                              </div>
-                            </div>
-                          </div>
-                      </div>
-                  </div>
-                </section>
-              </section>
-                         
-          <!-- best recipes -->
-          </section> <!--fin body section-->
-        <!-- footer -->
-        <footer class="row text-center navbar-box container-fluid ">
-          <ul class="nav col-md-12 justify-content-center">
-              <li class="nav-item">
-                <button class="nav-link active" aria-current="page" href="#">Contactenos</button>
-              </li>
-              <li class="nav-item">
-                <button class="nav-link" href="#">Terminos y Condiciones</button>
-              </li>
-              <li class="nav-item">
-                <button class="nav-link" href="#">Politicas de Privacidad</button>
-              </li>
-              <li class="nav-item">
-                <button class="nav-link" href="#">Accesibilidad</button>
-              </li>
-          </ul>
-          <p class="mb-0 text-center">CookIt es una marca registrada, derechos reservados.</p>
-          <p class="mb-0 text-center">© 2023 CookIt.</p>
-      </footer>
-      <!-- footer -->
-
-    </section>
-    <!-- VueJS -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <!-- main script -->
-    <script src="./js/main.js"></script>
-    <script src="./js/component.js"></script>
-    <script src="js/components/RecipeDetails.js"></script>
-    <script src="js/components/RecipeCategoryButton.js"></script>
-    <script src="js/components/RecipeCard.js"></script>
-    <!-- mounted -->
-     <!-- Axios - API recipes-->
-     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script>
-      const mountedApp = app.mount("#app");
-    </script>
+  </section>
+  <!-- VueJS -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!-- main script -->
+  <script src="./js/main.js"></script>
+  <script src="./js/component.js"></script>
+  <script src="js/components/RecipeDetails.js"></script>
+  <script src="js/components/RecipeCategoryButton.js"></script>
+  <script src="js/components/RecipeCard.js"></script>
+  <!-- mounted -->
+  <!-- Axios - API recipes-->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const mountedApp = app.mount("#app");
+  </script>
 </body>
+
 </html>

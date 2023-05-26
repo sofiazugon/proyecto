@@ -31,11 +31,7 @@ app.component('recipe-card',{
             type: Number
         },
     },
-    data(){
-        return{
-            counter: 0
-        }
-    },
+   
      methods:{
     onClickLike(){
         //console.log("LIKE");
@@ -60,17 +56,15 @@ app.component('recipe-card',{
     <div class="card-body">
         <h2 class="mt-2">{{ category }}</h2>
         <h1>{{ name }}</h1>
-        <p class="card-text">{{ description }}</p>
         <p>{{ time }}</p>
         <p>{{ level }}</p>
         <p>{{ likes }}</p>
-        <div class="nav">
-            <button class="btn red-btn" v-on:click="onClickLike(index)">Like</button>
+        <div class="row">
+            <button class=" btn red-btn" v-on:click="onClickLike(index)">Like</button>
             <button class="btn nred-btn" v-on:click="onClickUnlike(index)">Dislike</button>
-            </div>
+            <button class="btn lred-btn" v-on:click="onClickViewRecipe(index)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ver Receta</button>
         <div>
-        <button class="btn lred-btn" v-on:click="onClickViewRecipe(index)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ver Receta</button>
-        
+       
         </div>
     </div>
 </div>`

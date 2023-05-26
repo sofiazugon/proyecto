@@ -13,11 +13,11 @@ app.component('recipe-details',{
             type:String
         },
     },
-    mounted(){
+   /* mounted(){
       this.$test.on('foo', function(data){
         console.log(data);
       });
-    },
+    },*/
 methods:{
     onClickPrev(){
         console.log("PREV");

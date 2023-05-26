@@ -13521,7 +13521,7 @@ p {
   position: relative;
   display: block;
   place-items: center;
-  border-radius: 1rem;
+  border-radius: 1em;
   background-color: hsl(14deg, 69%, 63%);
   border: hsl(14deg, 69%, 63%);
   padding: 0.4rem 0.4rem;
@@ -13542,7 +13542,7 @@ p {
   position: relative;
   display: block;
   place-items: center;
-  border-radius: 1rem;
+  border-radius: 1em;
   background-color: hsl(14deg, 86%, 30%);
   border: hsl(14deg, 86%, 30%);
   padding: 0.4rem 0.4rem;
@@ -13563,6 +13563,7 @@ p {
   position: relative;
   display: block;
   place-items: center;
+  border-radius: 1em;
   background-color: hsl(0deg, 0%, 100%);
   border: hsl(0deg, 0%, 100%);
   padding: 0.4rem 0.4rem;
@@ -13789,7 +13790,7 @@ p {
   position: relative;
   display: block;
   place-items: center;
-  border-radius: 1rem;
+  border-radius: 1em;
   background-color: hsl(14deg, 69%, 63%);
   border: hsl(14deg, 69%, 63%);
   padding: 0.4rem 0.4rem;
@@ -13810,7 +13811,7 @@ p {
   position: relative;
   display: block;
   place-items: center;
-  border-radius: 1rem;
+  border-radius: 1em;
   background-color: hsl(14deg, 86%, 30%);
   border: hsl(14deg, 86%, 30%);
   padding: 0.4rem 0.4rem;
@@ -13831,6 +13832,7 @@ p {
   position: relative;
   display: block;
   place-items: center;
+  border-radius: 1em;
   background-color: hsl(0deg, 0%, 100%);
   border: hsl(0deg, 0%, 100%);
   padding: 0.4rem 0.4rem;

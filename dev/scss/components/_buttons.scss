@@ -23,7 +23,7 @@
     position: relative;
     display: block;
     place-items: center;
-    border-radius: 1rem;
+    border-radius: 1em;
     background-color: variables.$clr-nred;
     border: $border;
     padding: .4rem .4rem;
@@ -39,7 +39,7 @@
     position: relative;
     display: block;
     place-items: center;
-    border-radius: 1rem;
+    border-radius: 1em;
     background-color: variables.$clr-red;
     border: $border;
     padding: .4rem .4rem;
@@ -55,6 +55,7 @@
     position: relative;
     display: block;
     place-items: center;
+    border-radius: 1em;
     background-color: variables.$clr-white;
     border: $border;
     padding: .4rem .4rem;
