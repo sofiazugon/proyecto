@@ -36,28 +36,28 @@ app.component('recipe-card',{
             counter: 0
         }
     },
-    methods:{
-        onClickLike(){
-            
-            this.$emit('recipelike', this.index);
-            
-        },
-        onClickUnlike(){
-            
-            this.$emit('recipeunlike', this.index);
-    
-        },
-        onClickViewRecipe(){
-            console.log("VIEW");
-            this.$emit('recipedetails', this.index);
-            
-        },
-     },
+     methods:{
+    onClickLike(){
+        //console.log("LIKE");
+        this.$emit('recipelike', this.index);
+        //this.recipe_likes++;
+    },
+    onClickUnlike(){
+        //console.log("UNLIKE");
+        this.$emit('recipeunlike', this.index);
+
+    },
+    onClickViewRecipe(){
+        console.log("VIEW");
+        this.$emit('recipedetails', this.index);
+        //this.$test.emit('foo',"works!");
+    },
+ },
     template:
     /*html*/
-    `<div class=" p-2">
+    `<div class="p-2">
     <img v-bind:src="image" class="card-img-top rounded" alt="featured recipe">
-    <div class="card-body  p-0">
+    <div class="card-body">
         <h2 class="mt-2">{{ category }}</h2>
         <h1>{{ name }}</h1>
         <p class="card-text">{{ description }}</p>

@@ -13576,10 +13576,9 @@ p {
 }
 
 .card-detail {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
   border: 1px;
+  margin: 2rem;
   background-color: hsl(14deg, 59%, 47%);
   border-radius: 1rem;
   padding: 2rem;
@@ -13924,70 +13923,4 @@ p {
   color: hsl(14deg, 59%, 47%);
   padding-bottom: 2rem;
   padding-top: 2rem;
-}
-
-.cont-body {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.container-view {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.container-slider {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 2px;
-  width: 1300px;
-  height: 750px;
-  overflow: hidden;
-  scroll-behavior: smooth;
-}
-
-.slider-img {
-  margin: 3px;
-  padding-right: 3rem;
-}
-
-.container-control {
-  position: absolute;
-  width: 50px;
-  height: 70px;
-  border-radius: 30%;
-  background: hsl(14deg, 69%, 63%);
-  cursor: pointer;
-  -o-object-fit: contain;
-     object-fit: contain;
-  padding: 10px;
-}
-
-.prev {
-  left: 0;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
-.next {
-  right: 0;
-  top: 50%;
-  -webkit-transform: translate(50%, -50%);
-          transform: translate(50%, -50%);
 }

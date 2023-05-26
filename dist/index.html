@@ -44,13 +44,9 @@
         
       </div>
       
-      <!-- Modal -->
+      <!-- Modal--> 
 
-       <!--<recipe-details :name="recipe.name" :image="recipe.image"
-            :instructions="recipe.instructions"
-            :time="recipe.ingredients"></recipe-details>-->
-
-        <!-- header section -->
+         <!--header section -->
           
         <header class=" position-relative">
           <nav class="navbar col-md-12 navbar-box navbar-expand-lg">
@@ -114,46 +110,44 @@
           <!-- welcome -->
 
           <!-- featured recipes -->
-          <section class=" mt-2 pt-5">
+          <section class="row">
               <h2 class="mb-2">Recetas</h2>
-
-              <section class="cont-body">
-                <div class="container-view">
-                  <img class="container-control prev " src="images/img1.png" alt="">
-                  <div class="container-slider slider slider-img">
-                    <div v-if="hasRecipes" v-for="(item, index) in recipes" class="col-md-3 card-detail">
+              
+                <!--<recipe-details :name="recipe.name" :image="recipe.image"
+                    :instructions="recipe.instructions"
+                    :time="recipe.ingredients"></recipe-details>
+                    <recipe-details :name="recipe.name" :image="recipe.image"
+            :instructions="recipe.instructions"
+            :time="recipe.ingredients"></recipe-details> -->
+            </div>
+                <section class="row">
+                  <div v-for="(item, index) in recipes" class="col-md-3 card-detail">
                       <recipe-card :image="item.image" :category="item.category" :name="item.name"
-                        :description="item.instructions" :time="item.time" :level="item.level" :likes="item.likes"
-                        :index="item.id" v-on:recipelike="onClickRecipeLike" v-on:recipeunlike="onClickRecipeUnlike"
-                        v-on:recipedetails="onClickRecipeDetails">
-                    </recipe-card>
+                          :description="item.instructions" :time="item.time" :level="item.level" :likes="item.likes"
+                          :index="item.id" v-on:recipelike="onClickRecipeLike" v-on:recipeunlike="onClickRecipeUnlike"
+                          v-on:recipedetails="onClickRecipeDetails">
+                      </recipe-card>
+                  </div>
+              </section>
                     
                       <!--
                       <div class="card-detail p-4">
                           <img v-bind:src="item.image" class="card-img-top rounded" alt="featured recipe">
                           <div class=" p-0">
-                              <h2 class="mt-2">{{ item.category }}</h2>
-                              <h1 >{{ item.name }}</h1>
-                              <p >{{ item.description }}</p>
-                              <p>{{ item.time }}</p>
-                              <p>{{ item.level }}</p>
-                              <p>{{ item.likes }}</p>
-                              <div class="nav">
-                              <button class="btn lred-btn" v-on:click="onClickLike(index)">Like</button>
-                              <button class="btn nred-btn" v-on:click="onClickUnlike(index)">Dislike</button>
-                              <button class="btn red-btn" v-on:click="onClickViewRecipe(index)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ver Receta</button>
-                            </div>
+                              <recipe-card :image="item.image" :category="item.category" :name="item.name"
+                        :description="item.instructions" :time="item.time" :level="item.level" :likes="item.likes"
+                        :index="item.id" v-on:recipelike="onClickRecipeLike" v-on:recipeunlike="onClickRecipeUnlike"
+                        v-on:recipedetails="onClickRecipeDetails">
+                    </recipe-card>
+                  </div>
                           </div>
                       </div> -->
                       
                     </div>
-                    <p v-else class="fs-3 fw-bold">No hay recetas para esta categoria!</p>
+                    <p class="fs-3 fw-bold">No hay recetas para esta categoria!</p>
                    </div>
-                   <img class="container-control next slider-img" src="images/img2.png" alt="">
                   </div>
                 
-            </section>
-            
           </section>
           <!-- featured recipes -->
 
@@ -228,7 +222,6 @@
     <script src="./js/main.js"></script>
     <script src="./js/component.js"></script>
     <script src="js/components/RecipeDetails.js"></script>
-    <script src="js/scroll.js"></script>
     <script src="js/components/RecipeCategoryButton.js"></script>
     <script src="js/components/RecipeCard.js"></script>
     <!-- mounted -->
