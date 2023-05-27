@@ -46,7 +46,7 @@ const app = Vue.createApp({
         //connect to API
         axios({
             method: 'get',
-            url: 'https://api.spoonacular.com/recipes/complexSearch?type=main course&apiKey=d0c7ce5f1ae447ce98b8332b85ea8350'
+            url: 'https://api.spoonacular.com/recipes/complexSearch?type=main course&apiKey=0920bbc6ea36440ab43a0a5a884df479'
         })
         .then(
             (response) => {
@@ -65,7 +65,7 @@ const app = Vue.createApp({
                         time: "20 mins",
                         level: "Easy",
                         likes: 18,
-                        ingredients: element.extendedIngredients, //(.aisle)cuando trato de poner los ingredientes se ponen las otras recetas y se quitan las del api
+                        //ingredients: element.extendedIngredients, //(.aisle)cuando trato de poner los ingredientes se ponen las otras recetas y se quitan las del api
                         instructions: "NA"
                     });
                     if(items.length > 0) this.loading = false;
@@ -86,7 +86,7 @@ const app = Vue.createApp({
             for(let i =0; i<this.recipes.length; i++){
                 axios({
                     method: 'get',
-                    url: 'https://api.spoonacular.com/recipes/'+this.recipes[i].id+'/information?includeNutrition=false&apiKey=d0c7ce5f1ae447ce98b8332b85ea8350'
+                    url: 'https://api.spoonacular.com/recipes/'+this.recipes[i].id+'/information?includeNutrition=false&apiKey=0920bbc6ea36440ab43a0a5a884df479'
                 })
                 .then(
                     (response) => {
@@ -98,7 +98,7 @@ const app = Vue.createApp({
                         this.recipes[i].ingredients = items.extendedIngredients[i].name;
                         this.recipes[i].instructions= items.instructions;
                         this.recipes[i].category= items.category;
-                        
+ 
                     }
                 )
                 .catch(
@@ -107,7 +107,7 @@ const app = Vue.createApp({
 
             }
         },
-
+/*
         onClickLike(index){
             //console.log("btn - click");
             //this.likes += 1;
@@ -118,7 +118,8 @@ const app = Vue.createApp({
         onClickUnlike(index){
             //if(this.likes > 0) this.likes -= 1;
             if(this.recipes[index].likes > 0) this.recipes[index].likes -= 1;
-        },
+        }, */
+        
         onClickCategory(category){
             //console.log("category -> " + category);
             if(category == "All"){
@@ -139,7 +140,7 @@ const app = Vue.createApp({
             }
         },
 
-        onClickSearchRecipe(name){
+        onClickSearchRecipe(index){
             if(this.recipes = this.title){
                 let searchRecipe = this.recipes.title.filter(function(el){
                     return el.repices = name;
@@ -174,7 +175,8 @@ const app = Vue.createApp({
             //get recipe details
             axios({
                 method: 'get',
-                url: 'https://api.spoonacular.com/recipes/'+index+'/information?includeNutrition=false&apiKey=d0c7ce5f1ae447ce98b8332b85ea8350'
+
+                url: 'https://api.spoonacular.com/recipes/'+index+'/information?includeNutrition=false&apiKey=0920bbc6ea36440ab43a0a5a884df479'
             })
             .then(
                 (response) => {
@@ -192,13 +194,14 @@ const app = Vue.createApp({
                     this.recipe.likes = item.aggregateLikes;
                     this.recipe.instructions = item.instructions;
 
-                    let ingredientsList = " ";
+                    let ingredientsList = "";
                     for(let i = 0; i < item.extendedIngredients.length; i++){
                         
                         ingredientsList += item.extendedIngredients[i].original + "\n";
                     }
 
                     this.recipe.ingredients = ingredientsList;
+                    this.fillDataDetails();
 
                 }
             )
@@ -212,7 +215,7 @@ const app = Vue.createApp({
          //get recipies by category new api
          axios({
              method: 'get',
-             url: 'https://api.spoonacular.com/recipes/complexSearch?type='+category+'&apiKey=d0c7ce5f1ae447ce98b8332b85ea8350'
+             url: 'https://api.spoonacular.com/recipes/complexSearch?type='+category+'&apiKey=0920bbc6ea36440ab43a0a5a884df479'
          })
          .then(
              (response) => {

@@ -16,8 +16,8 @@ app.component('recipe-card',{
             default: "default description"
         },
         time:{
-            type: String,
-            default: "default time"
+            type: Number,
+            default: 0
         },
         level:{
             type: String,

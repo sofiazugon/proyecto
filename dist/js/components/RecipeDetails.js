@@ -12,6 +12,7 @@ app.component('recipe-details',{
         instructions:{
             type:String
         },
+
     },
    /* mounted(){
       this.$test.on('foo', function(data){
@@ -41,6 +42,7 @@ methods:{
         <img class="d-block m-auto img-fluid" v-bind:src="image" alt="{{ name }}">
               <p class="text-center fs-6">{{ ingredients }}</p>
               <p class="fst-italic fw-light fs-5">{{ instructions }}</p>
+              
         <div class="modal-footer">
         <button type="button" class="btn lred-btn" v-on:click="onClickPrev()">Anterior</button>
         <button type="button" class="btn nred-btn" v-on:click="onClickNext()">Siguiente</button>
