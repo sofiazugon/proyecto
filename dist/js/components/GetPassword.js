@@ -3,12 +3,17 @@ app.component('get-password',{
         email:{
             type: String
         },
-        verifyCode:{
-            type: int,
+        password:{
+            type: String,
         },
         username:{
             type: String,
-            
+        },
+        codeConfirm:{
+            type: Number,
+        },
+        phoneNumber:{
+            type: Number,
         },
     },
 })

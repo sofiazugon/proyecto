@@ -46,7 +46,7 @@ const app = Vue.createApp({
         //connect to API
         axios({
             method: 'get',
-            url: 'https://api.spoonacular.com/recipes/complexSearch?type=main course&apiKey=0920bbc6ea36440ab43a0a5a884df479'
+            url: 'https://api.spoonacular.com/recipes/complexSearch?type=main course&apiKey=62fca434bf1b4027ac02139acfdd19de'
         })
         .then(
             (response) => {
@@ -86,7 +86,7 @@ const app = Vue.createApp({
             for(let i =0; i<this.recipes.length; i++){
                 axios({
                     method: 'get',
-                    url: 'https://api.spoonacular.com/recipes/'+this.recipes[i].id+'/information?includeNutrition=false&apiKey=0920bbc6ea36440ab43a0a5a884df479'
+                    url: 'https://api.spoonacular.com/recipes/'+this.recipes[i].id+'/information?includeNutrition=false&apiKey=62fca434bf1b4027ac02139acfdd19de'
                 })
                 .then(
                     (response) => {
@@ -176,7 +176,7 @@ const app = Vue.createApp({
             axios({
                 method: 'get',
 
-                url: 'https://api.spoonacular.com/recipes/'+index+'/information?includeNutrition=false&apiKey=0920bbc6ea36440ab43a0a5a884df479'
+                url: 'https://api.spoonacular.com/recipes/'+index+'/information?includeNutrition=false&apiKey=62fca434bf1b4027ac02139acfdd19de'
             })
             .then(
                 (response) => {
@@ -215,7 +215,7 @@ const app = Vue.createApp({
          //get recipies by category new api
          axios({
              method: 'get',
-             url: 'https://api.spoonacular.com/recipes/complexSearch?type='+category+'&apiKey=0920bbc6ea36440ab43a0a5a884df479'
+             url: 'https://api.spoonacular.com/recipes/complexSearch?type='+category+'&apiKey=62fca434bf1b4027ac02139acfdd19de'
          })
          .then(
              (response) => {

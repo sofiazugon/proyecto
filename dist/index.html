@@ -69,7 +69,7 @@
           </div>
           <div>
             <form class="d-flex" role="search">
-              <input v-on:onClickSearchRecipe class="form-control me-2" type="search" placeholder="Buscar"
+              <input v-on:onClickSearchRecipe class="form-control me-2" type="text" placeholder="Buscar"
                 aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Buscar</button>
             </form>
@@ -132,7 +132,7 @@
 
         </div>
         <section class="row">
-          <div v-for="(item, index) in recipes" class="col-md-3 card-detail">
+          <div v-for="(item, index) in recipes " class="col-md-3 recipeSearch card-detail">
             <recipe-card :image="item.image" :category="item.category" :name="item.name"
               :description="item.instructions" :time="item.time" :level="item.level" :likes="item.likes"
               :index="item.id" v-on:recipelike="onClickRecipeLike" v-on:recipeunlike="onClickRecipeUnlike"

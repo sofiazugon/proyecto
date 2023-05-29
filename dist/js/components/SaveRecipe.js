@@ -1,9 +1,12 @@
-const app = Vue.createApp({
-    data() {
-        return {
-            recipe:{},
-            username:{},
+app.component('save-recipe',{
+    props:{
+        
+        recipe:{
+            type: String,
+        },
+        username:{
+            type: String,
             
-        }
+        },
     },
 })
