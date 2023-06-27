@@ -5,6 +5,10 @@
 
 
 //perfil imagen
+.img-perf{
+    margin-left: 3em;
+}
+
 .bg-perfil{
     img{
         
@@ -37,6 +41,7 @@
         
         padding-bottom:2rem ;
         padding-top:2rem ;
+        
     }
     button{
         border-radius: 2em;
@@ -77,9 +82,9 @@
         
         padding-bottom:2rem ;
         padding-top:2rem ;
+        margin-left: 3em;
     }
-    background-color: variables.$clr-red;
-    opacity: 50%;
+    background-color: variables.$clr-lred;
     border-radius:2rem;
     
 }

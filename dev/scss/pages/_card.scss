@@ -41,27 +41,32 @@
     border-color: none;
     border-width: 2rem;
     border-radius: 1rem;
-    margin: 1em;
-    
    
     align-items: center;
     }
     
     h1{
         @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-sm, variables.$clr-red);
-        padding: .2rem;
+        padding: 1rem;
+
     }
     h2{
         @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-sm, variables.$clr-nred);
-        padding: .2rem;
+        padding: 2rem;
+        margin: 1em;
+
     }
     h3{
         @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-sm, variables.$clr-dark);
-        padding: .2rem;
+        padding: 2rem;
+        margin: 1em;
+
     }
     p{
         @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-sm, variables.$clr-dred);
-        padding: .2rem;
+        padding: 2rem;
+        margin: 1em;
+
     }
     
     

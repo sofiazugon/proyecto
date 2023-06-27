@@ -4,13 +4,14 @@
 //buttons
 
 @mixin btn-view($border, $bg, $color){
+    margin: 0.2em;
     position: relative;
     display: block;
     place-items: center;
-    border-radius: 1rem;
+    border-radius: 0.5em;
     background-color: variables.$clr-dred;
     border: $border;
-    padding: .4rem .4rem;
+    padding: .2rem .2rem;
     text-decoration: none;
     font-family: variables.$ff;
     align-items: center;
@@ -20,13 +21,14 @@
 }
 
 @mixin btn-nred($border, $bg, $color){
+    margin: 0.2em;
     position: relative;
     display: block;
     place-items: center;
-    border-radius: 1em;
+    border-radius: 0.5em;
     background-color: variables.$clr-nred;
     border: $border;
-    padding: .4rem .4rem;
+    padding: .2rem .2rem;
     text-decoration: none;
     font-family: variables.$ff;
     align-items: center;
@@ -34,15 +36,34 @@
     
 
 }
-
-@mixin btn-navlr($border, $bg, $color){
+@mixin btn-ligt-red($border, $bg, $color){
+    margin: 0.2em;
     position: relative;
     display: block;
     place-items: center;
-    border-radius: 1em;
+    border-radius: 0.5em;
+    background-color: variables.$clr-lred;
+    border: $border;
+    padding: .2rem .2rem;
+    text-decoration: none;
+    font-family: variables.$ff;
+    font-weight: variables.$fw-semibold;
+    align-items: center;
+    box-shadow: none;
+    margin-top: 3em;
+    
+
+}
+
+@mixin btn-navlr($border, $bg, $color){
+    margin: 0.2em;
+    position: relative;
+    display: block;
+    place-items: center;
+    border-radius: 0.5em;
     background-color: variables.$clr-red;
     border: $border;
-    padding: .4rem .4rem;
+    padding: .2rem .2rem;
     text-decoration: none;
     font-family: variables.$ff;
     align-items: center;
@@ -52,13 +73,14 @@
 }
 
 @mixin btn-navw($border, $bg, $color){
+    margin: 0.2em;
     position: relative;
     display: block;
     place-items: center;
-    border-radius: 1em;
+    border-radius: 0.5em;
     background-color: variables.$clr-white;
     border: $border;
-    padding: .4rem .4rem;
+    padding: .2rem .2rem;
     text-decoration: none;
     font-family: variables.$ff;
     align-items: center;

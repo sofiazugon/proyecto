@@ -29,7 +29,7 @@
         <div class="container-fluid">
           <div><img src="images/Logo-cook-it.png" alt="logo"></div>
           <div>
-            <ul class="navbar-nav ul-style me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <a class="btn" href="index.html">Inicio</a>
               <a class="btn" href="registro_usuario.html">Crear cuenta</a>
               <a class="btn" href="perfil.html">Mi Perfil</a>
@@ -44,20 +44,6 @@
       </nav>
       <div>
         <div><img v-bind:src="image" class="img-fluid" alt="header"></div>
-        <nav class="navbar align-content-center col-md-12 navbar-box navbar-expand-lg">
-          <div class="container-fluid">
-            <div>
-              <ul class="navbar-nav me-auto col-md-12 mb-2 mb-lg-0">
-                <li><recipe-favorite-button v-on:favoriterecipe="onClickFavoriteRecipe"></recipe-favorite-button> 
-                </li>
-                <li v-for="(category, index) in categories" class="nav-item">
-                  <recipe-category-button :name="category.name" v-on:selectedcategory="onClickSelectedCategory"></recipe-category-button> 
-                 
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
 
         <div class=" position-absolute top-50 start-50 translate-middle">
           <h1>{{ title }}</h1>
@@ -75,20 +61,20 @@
 
 
       <section class="row mt-4">
-        <h2 class="text-center">Bienvenido a Cook It, aquí podrás compartir y observar variedad de recetas.</h2>
-        <p>Nuestro sitio web también presenta colecciones de recetas para ocasiones especiales, como días festivos, cumpleaños y aniversarios, así como restricciones dietéticas, como sin gluten, vegetarianas y veganas. Con nuestra diversa selección de recetas, puede satisfacer sus antojos y explorar nuevos sabores sin sacrificar sus necesidades dietéticas.</p>
+        <h2 class="text-center">Bienvenido a la Lista de recetas favoritas.</h2>
+        <p>En esta sección podrás ver las recetas favoritas de la comunidad, las recetas con mayor cantidad de likes se encuentran en esta sección.</p>
       </section>
       <!-- welcome -->
 
       <!-- featured recipes -->
       <section class="row">
-        <h2 class="mb-2">Recetas</h2>
+        <h2 class="mb-2">Las más votadas</h2>
 
         <!--<recipe-details :name="recipe.name" :image="recipe.image"
                     :instructions="recipe.instructions"
                     :time="recipe.ingredients"></recipe-details> -->
 
-        <recipe-details :name="recipes[selectedIndex].name" :image="recipes[selectedIndex].image" :instructions="recipes[selectedIndex].instructions" :description="recipes[selectedIndex].description" :ingredients="recipes[selectedIndex].ingredients"></recipe-details>
+        <recipe-details :name="recipes[selectedIndex].name" :image="recipes[selectedIndex].image" :instructions="recipes[selectedIndex].instructions" :ingredients="recipes[selectedIndex].ingredients"></recipe-details>
 
         <section class="row">
           <div v-for="(item, index) in recipes " class="col-md-3 recipeSearch card-detail">
@@ -120,7 +106,7 @@
       <!--Recomendaciones-->
 
       <section class="pt-5">
-        <h2 class="pb-5 mb-3">Recomendaciones</h2>
+        <h2>Recomendaciones</h2>
         <section class="container col-md-7">
           <div class="row"><iframe src="https://assets.pinterest.com/ext/embed.html?id=154459462210689299" height="445"
               width="345" frameborder="0" scrolling="no"></iframe></div>
@@ -135,24 +121,6 @@
 
       <!--Recomendaciones-->
 
-      <!-- best recipes -->
-      <section class="row pt-5">
-        <h2>Mejores Recetas</h2>
-       
-        <section class="row">
-          <section class="row">
-            <div v-for="(item, index) in recipes " class="col-md-3 recipeSearch card-detail">
-              <recipe-card :image="item.image" :category="item.category" :name="item.name"
-                :description="item.instructions" :time="item.time" :level="item.level" :likes="item.likes"
-                :index="item.index" v-on:recipelike="onClickRecipeLike" v-on:recipeunlike="onClickRecipeUnlike"
-                v-on:recipedetails="onClickRecipeDetails">
-              </recipe-card>
-            </div>
-          </section>
-        </section>
-      </section>
-
-      <!-- best recipes -->
     </section> <!--fin body section-->
     <!-- footer -->
     <footer class="row text-center navbar-box container-fluid ">

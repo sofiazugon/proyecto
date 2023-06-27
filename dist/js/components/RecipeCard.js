@@ -11,13 +11,9 @@ app.component('recipe-card',{
             type: String,
             default: "default name"
         },
-        description:{
-            type: String,
-            default: "default description"
-        },
+        
         time:{
-            type: Number,
-            default: 0
+            type: Number
         },
         level:{
             type: String,
@@ -31,7 +27,6 @@ app.component('recipe-card',{
             type: Number
         },
     },
-   
      methods:{
     onClickLike(){
         //console.log("LIKE");
@@ -44,28 +39,27 @@ app.component('recipe-card',{
 
     },
     onClickViewRecipe(){
-        console.log("VIEW");
+        console.log("VIEW -> "+ this.index);
         this.$emit('recipedetails', this.index);
-        //this.$test.emit('foo',"works!");
+        //this.$test.emit('foo', this.index);
     },
  },
     template:
     /*html*/
     `<div class="p-2">
-    <img v-bind:src="image" class="card-img-top rounded" alt="featured recipe">
-    <div class="card-body">
-       <!-- <h2 class="mt-2">{{ category }}</h2> -->
-        <h1>{{ name }}</h1>
-        <p>{{ time }}</p>
-        <p>{{ level }}</p>
-        <p>{{ likes }}</p>
+        <img v-bind:src="image" class="card-img-top rounded" alt="featured recipe">
+        <div class="card-body">
+            <!-- <h2 class="mt-2">{{ category }}</h2> -->
+            <h1>{{ name }}</h1>
+            <p>{{ time }}</p>
+            <p>{{ level }}</p>
+            <p>{{ likes }}</p>
+        </div>
         <div class="row">
-            <button class=" btn red-btn" v-on:click="onClickLike(index)">Like</button>
+            <button class=" btn lightred-btn" v-on:click="onClickLike(index)">Like</button>
             <button class="btn nred-btn" v-on:click="onClickUnlike(index)">Dislike</button>
             <button class="btn lred-btn" v-on:click="onClickViewRecipe(index)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ver Receta</button>
-        <div>
+        </div>  
        
-        </div>
-    </div>
-</div>`
+    </div>`
 })

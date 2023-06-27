@@ -28,6 +28,11 @@ h2{
 }
 
 //Navbar//
+
+.ul-style{
+    margin-left: 19em
+}
+
 .navbar-box{
     
     button{
@@ -51,14 +56,14 @@ h2{
 
     form{
         input{
-            @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-xxxsm, variables.$clr-white);
-            background-color: variables.$clr-dred;
+            @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-xxxsm, variables.$clr-nred);
+            background-color: variables.$clr-lred;
             border-radius: 2em;
             border-color: none;
         }
         button{
-            @include typography.set-font(variables.$ff, variables.$fw-semibold, variables.$fs-xxxsm, variables.$clr-dred);
-            background-color: variables.$clr-white;
+            @include typography.set-font(variables.$ff, variables.$fw-semibold, variables.$fs-xxxsm, variables.$clr-white);
+            background-color: variables.$clr-dred;
             border-radius: 2em;
             border-color: none;
         }
@@ -119,6 +124,11 @@ p{
 .white-btn{
     @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-xxxsm, variables.$clr-dark);
     @include buttons.btn-navw(variables.$clr-white, variables.$clr-dark, variables.$ff );
+}
+
+.lightred-btn{
+    @include typography.set-font(variables.$ff, variables.$fw-regular, variables.$fs-xxxsm, variables.$clr-dred);
+    @include buttons.btn-ligt-red(variables.$clr-lred, variables.$ff, variables.$fw-semibold );
 }
 
 

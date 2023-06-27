@@ -1,36 +1,33 @@
-app.component('recipe-details',{
-    props:{
-        name:{
-            type:String
-        },
-        image:{
-            type:String
-        },
-        ingredients:{
-            type:String
-        },
-        instructions:{
-            type:String
-        },
-
+app.component('recipe-details', {
+  props: {
+    name: {
+      type: String
     },
-   /* mounted(){
-      this.$test.on('foo', function(data){
-        console.log(data);
-      });
-    },*/
-methods:{
-    onClickPrev(){
-        console.log("PREV");
-
+    image: {
+      type: String
     },
-    onClickNext(){
-        console.log("NEXT");
+    ingredients: {
+      type: String
+    },
+    instructions: {
+      type: String
+    },
+    description:{
+      type: String,
+  },
+
+  },
+  data() {
+    return {
+      test: ""
     }
+  },
 
-},
-    template:
-    /*html*/ 
+  methods: {
+
+  },
+  template:
+    /*html*/
     `
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-style">
@@ -41,11 +38,10 @@ methods:{
         </div>
         <img class="d-block m-auto img-fluid" v-bind:src="image" alt="{{ name }}">
               <p class="text-center fs-6">{{ ingredients }}</p>
+              <p class="fst-italic fw-light fs-5">{{ description }}</p>
               <p class="fst-italic fw-light fs-5">{{ instructions }}</p>
               
         <div class="modal-footer">
-        <button type="button" class="btn lred-btn" v-on:click="onClickPrev()">Anterior</button>
-        <button type="button" class="btn nred-btn" v-on:click="onClickNext()">Siguiente</button>
         <button type="button" class="btn red-btn" data-bs-dismiss="modal">Cerrar</button>
 
         </div>
