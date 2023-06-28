@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Cook It</title>
+</head>
+<body>
+    <section id="#app">
+        <recipe-card></recipe-card>
+        
+        <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-style">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 id="staticBackdropLabel">{{ recipes[selectedIndex].name }}</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body row">
+              <img class="d-block m-auto img-fluid" v-bind:src="recipes[selectedIndex].image" alt="{{ recipes[selectedIndex].name }}">
+              <p>Ingredientes</p>
+              <h2 class="text-center fs-6">{{ recipes[selectedIndex].ingredients }}</h2>
+              <p>Preparacion</p>
+              <h3 class="fst-italic fw-light fs-5">{{ recipes[selectedIndex].instructions }}</h3>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn lred-btn" v-on:click="onClickPrev()">Anterior</button>
+              <button type="button" class="btn nred-btn" v-on:click="onClickNext()">Siguiente</button>
+              <button type="button" class="btn red-btn" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+
+        <!--Nav-->  
+        <div >
+          <header class=" position-relative">
+            <nav class="navbar col-md-12 navbar-box navbar-expand-lg">
+              <div class="container-fluid">
+                <div><img src="images/Logo-cook-it.png" alt="logo"></div>
+                <div>
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <a class="btn" href="index.html">Inicio</a>
+                    <button class="btn">Favoritos</button>
+                    <a class="btn" href="iniciar_sesion.html">Ya tengo cuenta</a>
+                    
+                </ul>
+                </div>
+                    <div>
+                      <form class="d-flex" role="search">
+                      <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                      <button class="btn btn-outline-success" type="submit">Buscar</button>
+                      </form>
+                    </div>
+                
+              </div>
+          </nav>
+          <div class="row">
+            <div class="container-fluid col-md-2 sec-perfil align-content-center">
+              <h1>Perfil de Administrador</h1>
+
+              <img class="img-perf" src="images/perfil.png" class="img-fluid align-items-center" width="200" alt="header">
+            </div>
+          </div>
+        </header>
+          </header>
+      </div>
+        <!--Nav-->
+        <section class="container-lg sec-perfil ">  
+            <section class="row secodaryBg">
+                <h2>Nombre:</h2>
+                <h2>Apellido:</h2>
+                <h2>Nombre de Usuario:</h2>
+                <h2>Correo Electrónico:</h2>
+            </section>
+            
+            <section>
+                <h1>Tabla de Recetas agregadas</h1>
+                <!--Pegutar al profe si crear la tabla y el formulario de agregar receta en un modal-->
+                <section>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>No</th>
+                            <th>Recipe</th>
+                            <th>Category</th>
+                            <th>Occasion</th>
+                            <th>Level</th>
+                            <th width="280px">Action</th>
+                        </tr>
+                        <tr>
+                            <td>{{ $recipe->id }}</td>
+                            <td>{{ $recipe->name }}</td>
+                            <td>{{ $recipe->category }}</td>
+                            <td>{{ $recipe->occasion }}</td>
+                            <td>{{ $recipe->level }}</td>
+                            <td>
+                                <form action="{{ route('recipes.destroy',$recipe->id) }}" method="POST">
+                   
+                                    <a class="btn btn-lightred" href="{{ route('recipes.show',$recipe->id) }}">Show</a>
+                    
+                                    <a class="btn btn-lred" href="{{ route('recipes.edit',$recipe->id) }}">Edit</a>
+                                    <button class="btn btn-nred" type="button">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        
+                    </table>
+                    <div class="pull-right">
+                        <a class="btn btn-nred" href="{{ route('recipes.create') }}"> Add New Recipe</a>
+                    </div>
+                </section>
+            </section>
+        </section>
+
+        <!-- footer -->
+        <footer class="row text-center navbar-box container-fluid ">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                  <button class="nav-link active" aria-current="page" href="#">Contactenos</button>
+                </li>
+                <li class="nav-item">
+                  <button class="nav-link" href="#">Terminos y Condiciones</button>
+                </li>
+                <li class="nav-item">
+                  <button class="nav-link" href="#">Politicas de Privacidad</button>
+                </li>
+                <li class="nav-item">
+                  <button class="nav-link" href="#">Accesibilidad</button>
+                </li>
+            </ul>
+            <p class="mb-0 text-center">CookIt es una marca registrada, derechos reservados.</p>
+            <p class="mb-0 text-center">© 2023 CookIt.</p>
+        </footer>
+        <!-- footer -->
+
+    </section>
+</section>
+<!-- VueJS -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<!-- main script -->
+<script src="./js/main.js"></script>
+<script src="./js/components/RecipeCard.js"></script>
+<script src="./js/components/RecipeCategoryButton.js"></script>
+
+<!-- mounted -->
+<script>
+  const mountedApp = app.mount("#app");
+</script>
+</body>

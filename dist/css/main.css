@@ -13457,6 +13457,64 @@ h2 {
   border-color: none;
 }
 
+table {
+  border-color: hsl(14deg, 86%, 30%);
+}
+table th {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: hsl(14deg, 59%, 47%);
+}
+table td {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: hsl(200deg, 19%, 18%);
+}
+
+.form-style h1 {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: hsl(14deg, 59%, 47%);
+}
+.form-style input {
+  border-color: hsl(14deg, 86%, 30%);
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: hsl(14deg, 86%, 30%);
+}
+.form-style select {
+  border-color: hsl(14deg, 86%, 30%);
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: hsl(14deg, 86%, 30%);
+}
+.form-style btn-primary {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: hsl(0deg, 0%, 100%);
+  margin: 0.2em;
+  position: relative;
+  display: block;
+  place-items: center;
+  border-radius: 0.5em;
+  background-color: hsl(14deg, 59%, 47%);
+  border: hsl(14deg, 59%, 47%);
+  padding: 0.2rem 0.2rem;
+  text-decoration: none;
+  font-family: "Source Sans Pro", sans-serif;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 p {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
@@ -13758,6 +13816,69 @@ h2 {
   background-color: hsl(14deg, 59%, 47%);
   border-radius: 2em;
   border-color: none;
+}
+
+table {
+  border-color: hsl(14deg, 86%, 30%);
+}
+
+table th {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: hsl(14deg, 59%, 47%);
+}
+
+table td {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: hsl(200deg, 19%, 18%);
+}
+
+.form-style h1 {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: hsl(14deg, 59%, 47%);
+}
+
+.form-style input {
+  border-color: hsl(14deg, 86%, 30%);
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: hsl(14deg, 86%, 30%);
+}
+
+.form-style select {
+  border-color: hsl(14deg, 86%, 30%);
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: hsl(14deg, 86%, 30%);
+}
+
+.form-style btn-primary {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: hsl(0deg, 0%, 100%);
+  margin: 0.2em;
+  position: relative;
+  display: block;
+  place-items: center;
+  border-radius: 0.5em;
+  background-color: hsl(14deg, 59%, 47%);
+  border: hsl(14deg, 59%, 47%);
+  padding: 0.2rem 0.2rem;
+  text-decoration: none;
+  font-family: "Source Sans Pro", sans-serif;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 p {

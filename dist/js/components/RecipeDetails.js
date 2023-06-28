@@ -36,7 +36,7 @@ app.component('recipe-details', {
           <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ name }}</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <img class="d-block m-auto img-fluid" v-bind:src="image" alt="{{ name }}">
+        <img class="d-block m-auto img-fluid" v-bind:src="image" alt="{{ image }}">
               <p class="text-center fs-6">{{ ingredients }}</p>
               <p class="fst-italic fw-light fs-5">{{ description }}</p>
               <p class="fst-italic fw-light fs-5">{{ instructions }}</p>

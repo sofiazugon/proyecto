@@ -1,5 +1,6 @@
 @use '../scss/base/typography';
 @use '../scss/abstracts/variables';
+@use '../scss/abstracts/mixins';
 @use '../components/buttons';
 
 
@@ -73,6 +74,47 @@ h2{
 
 }
 
+//table admin
+
+table{
+    //@include table.table-variant (variables.$clr-nred, variables.$clr-lightred, variables.$clr-nred);
+    border-color: variables.$clr-nred;
+    th{
+        @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-xxxsm, variables.$clr-dred);
+
+    }
+    td{
+        @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-xxxsm, variables.$clr-dark);
+
+    }
+}
+
+//form
+
+.form-style{
+
+    h1{
+        @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-xxxsm, variables.$clr-dred);
+
+    }
+
+    input{
+        border-color: variables.$clr-nred;
+        @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-xxxsm, variables.$clr-nred);
+
+    }
+
+    select{
+        border-color: variables.$clr-nred;
+        @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-xxxsm, variables.$clr-nred);
+
+
+    }
+    btn-primary{
+        @include typography.set-font(variables.$ff, variables.$fw-bold, variables.$fs-xxxsm, variables.$clr-white);
+        @include buttons.btn-view(variables.$clr-dred, variables.$clr-white, variables.$ff );
+    }
+}
 
 //parrafos
 

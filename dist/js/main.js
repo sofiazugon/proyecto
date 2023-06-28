@@ -41,20 +41,21 @@ const app = Vue.createApp({
             //connect to API
             axios({
                 method: 'get',
-                url: 'http://localhost/proyecto/public/api/recipes/filterby/category/1'//+this.category[i].id,
+                url: 'http://localhost/proyecto/public/api/recipes/all'//+this.category[i].id,
                 //'https://api.spoonacular.com/recipes/complexSearch?type='+category+'&apiKey='+this.appKey
             })
             .then(
                 (response) => {
-                    let items = response.data.results;
+                    let items = response.data;
                     this.recipes =[];
                 
                     items.forEach( element => {
                         this.recipes.push({
                             id: element.id,
                             name: element.name,
-                            category:element.category,
+                            category: element.category,
                             image: element.image,
+                            time: element.total_time,
                             level: element.level,
                             likes: element.likes,
                         });
@@ -80,7 +81,7 @@ const app = Vue.createApp({
             for(let i =0; i<this.recipes.length; i++){
                 axios({
                     method: 'get',
-                    url: 'http://localhost/proyecto/public/api/recipes/recipe/all'//+this.recipes[i].id,
+                    url: 'http://localhost/proyecto/public/api/recipes/recipe/'+this.recipe[i].id,
                     //'https://api.spoonacular.com/recipes/'+this.recipes[i].id+'/information?includeNutrition=false&apiKey='+this.appKey
                 })
                 .then(
@@ -88,15 +89,15 @@ const app = Vue.createApp({
                         let items = response.data;
                         
                         this.recipes[i].name= items.name;
-                        this.recipes[i].iamge= items.image;
+                        this.recipes[i].image= items.image;
                         this.recipes[i].time= items.total_time;
                         this.recipes[i].likes= items.likes;
                         this.recipes[i].description= items.description;
                         this.recipes[i].instructions= items.preparation_instructions;
                         
                         let ingredientsList = "";
-                        for(let i = 0; i < items.extendedIngredients.length; i++){
-                            ingredientsList += items.extendedIngredients[i].original + "\n";
+                        for(let i = 0; i < items.recipe_has_ingredients.length; i++){
+                            ingredientsList += items.recipe_has_ingredients[i].original + "\n";
                         }
 
                         this.recipes[i].ingredients = ingredientsList;
