@@ -1,12 +1,4 @@
 app.component('recipe-favorite-button',{
-   /*
-    props: {
-        bestrecipe: {
-            type: Boolean,
-            default: false
-        },
-    },
-    */
    
     methods:{
         onClickFavoriteButton(){

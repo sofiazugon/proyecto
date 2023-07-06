@@ -39,7 +39,7 @@ app.component('recipe-card',{
 
     },
     onClickViewRecipe(){
-        console.log("VIEW -> "+ this.index);
+        //console.log("VIEW -> "+ this.index);
         this.$emit('recipedetails', this.index);
         //this.$test.emit('foo', this.index);
     },
@@ -51,9 +51,9 @@ app.component('recipe-card',{
         <div class="card-body">
             <!-- <h2 class="mt-2">{{ category }}</h2> -->
             <h1>{{ name }}</h1>
-            <p>{{ time }}</p>
-            <p>{{ level }}</p>
-            <p>{{ likes }}</p>
+            <p>Category: {{ category }}</p>
+            <p>Level: {{ level }}</p>
+            <p>Likes: {{ likes }}</p>
         </div>
         <div class="row">
             <button class=" btn lightred-btn" v-on:click="onClickLike(index)">Like</button>

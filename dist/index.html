@@ -48,12 +48,11 @@
           <div class="container-fluid">
             <div>
               <ul class="navbar-nav me-auto col-md-12 mb-2 mb-lg-0">
-                <li><recipe-favorite-button v-on:favoriterecipe="onClickFavoriteRecipe"></recipe-favorite-button> 
-                </li>
+                <li><recipe-favorite-button v-on:favoriterecipe="onClickFavoriteRecipe"></recipe-favorite-button></li>
+                <li><top10recipe-button v-on:top10recipes="onClickTopRecipe"></top10recipe-button> 
                 <li v-for="(category, index) in categories" class="nav-item">
-                  <recipe-category-button :name="category.name" v-on:selectedcategory="onClickSelectedCategory"></recipe-category-button> 
-                 
-                </li>
+                  <recipe-category-button :name="category.name" :id="category.id" v-on:selectedcategory="onClickSelectedCategory"></recipe-category-button></li>
+                <li><a  class='btn btn-red' href="index.html">All</a>
               </ul>
             </div>
           </div>
@@ -88,7 +87,7 @@
                     :instructions="recipe.instructions"
                     :time="recipe.ingredients"></recipe-details> -->
 
-        <recipe-details :name="recipes[selectedIndex].name" :image="recipes[selectedIndex].image" :instructions="recipes[selectedIndex].instructions" :description="recipes[selectedIndex].description" :ingredients="recipes[selectedIndex].ingredients"></recipe-details>
+        <recipe-details :name="recipe.name" :image="recipe.image" :instructions="recipe.instructions" :description="recipe.description" :ingredients="recipe.ingredients" :category="recipe.category" :likes="recipe.likes" :level="recipe.level" :total_time="recipe.total_time" :portions="recipe.portions" :occasion="recipe.occasion"></recipe-details>
 
         <section class="row">
           <div v-for="(item, index) in recipes " class="col-md-3 recipeSearch card-detail">
@@ -186,6 +185,7 @@
   <script src="js/components/RecipeCard.js"></script>
   <script src="js/components/SearchRecipe.js"></script>
   <script src="js/components/FavoriteRecipe.js"></script>
+  <script src="js/components/top10recipes.js"></script>
   <!-- mounted -->
   <!-- Axios - API recipes-->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

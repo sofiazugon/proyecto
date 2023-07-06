@@ -13,14 +13,15 @@ const app = Vue.createApp({
             ],
             categories:[
                 
-                {name: 'Breakfast'},
-                {name: 'Drinks'},
-                {name: 'Lunch'},
-                {name: 'Lunch'},
-                {name: 'Soups'},
-                {name: 'Entrees'},
+                {name: 'Breakfast', id:1 },
+                {name: 'Drinks', id:2},
+                {name: 'Lunch', id:3},
+                {name: 'Desserts', id:4},
+                {name: 'Soups', id:5},
+                {name: 'Entrees', id:6},
 
             ],
+            
             recipe: {},
             all_recipes:[],
             hasRecipes: true,
@@ -29,20 +30,225 @@ const app = Vue.createApp({
     },
     mounted:function() {
         this.all_recipes = this.recipes;
-        this.getRecipesByCategory('Entrees');
+        this.getAllRecipes();
+        this.getRecipesByCategory();
         
        },
     
 
     methods: {
 
-        getRecipesByCategory(){
-            //CONECTA AL API, pero llama solo a las recetas del inicio, porque al seleccionar la categoria las demas recetas aparecen pero sin la info
-            //connect to API
+
+        // ALL RECIPES INDEX
+
+        getAllRecipes(){
             axios({
                 method: 'get',
-                url: 'http://localhost/proyecto/public/api/recipes/all'//+this.category[i].id,
-                //'https://api.spoonacular.com/recipes/complexSearch?type='+category+'&apiKey='+this.appKey
+                url: 'http://localhost/proyecto/public/api/recipes/all'
+            })
+            .then(
+                (response) => {
+                    let items = response.data;
+                    this.recipes =[];
+                    
+                
+                    items.forEach( element => {
+                        this.recipes.push({
+                            id: element.id,
+                            name: element.name,
+                            category: element.category,
+                            image: element.image,
+                            occasion: element.occasion,
+                            portions: element.portions,
+                            total_time: element.total_time,
+                            level: element.level,
+                            likes: element.likes,
+                        });
+                    })
+                    console.log(this.recipes);
+                }
+            )
+            .catch(
+                error => console.log(error)
+            );
+        },
+
+        // ALL RECIPES INDEX
+
+        // CATEGORY
+
+        getRecipesByCategory(categoryID){
+            
+            axios({
+                method: 'get',
+                url: 'http://localhost/proyecto/public/api/recipes/filterby/category/'+categoryID,
+            })
+            .then(
+                (response) => {
+                    let items = response.data;
+                    this.recipes =[];
+                    
+                
+                    items.forEach( element => {
+                        this.recipes.push({
+                            id: element.id,
+                            name: element.name,
+                            category: element.category,
+                            image: element.image,
+                            occasion: element.occasion,
+                            portions: element.portions,
+                            total_time: element.total_time,
+                            level: element.level,
+                            likes: element.likes,
+                        });
+
+                    })
+                    console.log(this.recipes);
+                }
+            )
+            .catch(
+            );
+        },
+
+        
+         onClickSelectedCategory(categoryID){
+            this.getRecipesByCategory(categoryID);
+            
+        },
+        
+        // CATEGORY
+
+
+        //RECIPE DETAILS CARD
+
+        onClickRecipeDetails(index) {
+            this.selectedIndex = index;
+            console.log("RECIPE ID -" + (index+1));
+
+            axios({
+                method: 'get',
+                url: 'http://localhost/proyecto/public/api/recipes/recipe/'+(index+1)
+            })
+                .then(
+                    (response) => {
+
+
+                        let item = response.data[0][0];
+                        //console.log(item);
+                        
+                        this.recipe.image = item.image;
+                        this.recipe.name = item.name;
+                        this.recipe.category = item.category;
+                        this.recipe.total_time = item.total_time;
+                        this.recipe.level = item.level;
+                        this.recipe.likes = item.likes;
+                        this.recipe.portions = item.portions;
+                        this.recipe.description = item.description;
+                        this.recipe.instructions = item.preparation_instructions;
+                        this.recipe.occasion = item.occasion;
+
+
+
+                    //get ingredients array
+                       IngredientsList=[];
+                        let data = "";
+                        console.log(response.data[1])
+                        for(let i = 0; i < response.data[1].length; i++){
+                            console.log(response.data[1][i].description)
+                            data+=response.data[1][i].amount+" "+response.data[1][i].measurement_unit+" "+response.data[1][i].description+"  -  ";
+                        }
+                        this.recipe.ingredients = data;
+                        
+                    }
+                )
+                .catch(
+                    error => console.log(error)
+                ); 
+        },
+
+         //RECIPE DETAILS CARD
+
+
+        //Top 10 Recipes
+
+        onTopRecipes(){
+            axios({
+                method: 'get',
+                url: 'http://localhost/proyecto/public/api/recipes/top10'
+            })
+            .then(
+                (response) => {
+                    let items = response.data;
+                    this.recipes =[];
+                    
+                
+                    items.forEach( element => {
+                        this.recipes.push({
+                            id: element.id,
+                            name: element.name,
+                            category: element.category,
+                            image: element.image,
+                            occasion: element.occasion,
+                            portions: element.portions,
+                            total_time: element.total_time,
+                            level: element.level,
+                            likes: element.likes,
+                        });
+
+                    })
+                    console.log(this.recipes);
+                }
+            )
+            .catch(
+            );
+        },
+
+        onClickTopRecipe(){
+            this.onTopRecipes();
+        },
+
+        //Top 10 Recipes
+
+
+        //LIKES METHODS
+
+        onClickRecipeLike(index){
+            this.recipes[index].likes += 1;
+        },
+
+        onClickRecipeUnlike(index){
+            if(this.recipes[index].likes > 0) this.recipes[index].likes -= 1;
+        }, 
+
+
+        //LIKES METHODS
+
+
+        //SAVE RECIPE (NOT WORKING)
+
+        onSaveRecipe(){  
+
+            for (let i = 0; i < this.all_recipes.length; i++) {
+                if(this.recipes[i] = 'saverecipe'){
+                    this.saved_recipe.push(this.recipe[i]);
+                }
+            } 
+        },
+
+        onClickSaveRecipe(){
+            this.onSaveRecipe();
+            console.log(saved_recipe);
+        },
+
+        //SAVE RECIPE
+
+       
+        //SEARCH RECIPE BY NAME
+
+        onSearchRecipe(name){
+            axios({
+                method: 'get',
+                url: 'http://localhost/proyecto/public/api/recipes/searchbyname/'+name,
             })
             .then(
                 (response) => {
@@ -55,171 +261,13 @@ const app = Vue.createApp({
                             name: element.name,
                             category: element.category,
                             image: element.image,
-                            time: element.total_time,
+                            occasion: element.occasion,
+                            portions: element.portions,
+                            total_time: element.total_time,
                             level: element.level,
                             likes: element.likes,
                         });
-                        if(items.length > 0) this.loading = false;
                     })
-                    this.fillDataDetails()
-                }
-            )
-            .catch(
-                error => console.log(error)
-            );
-        },
-        /* getRecipesByLikes(likes){ 
-            likes = this.getRecipesByCategory(category, likes);
-
-            for (let i = 0; i < this.getRecipesByCategory('categories').length; i++){
-                if(this.all_recipes[i].aggregateLikes>99);
-                favoriteRecipes = all_recipes[i];
-            } 
-        } ,*/
-        //permite llenar los cards con los detalles
-        fillDataDetails(){
-            for(let i =0; i<this.recipes.length; i++){
-                axios({
-                    method: 'get',
-                    url: 'http://localhost/proyecto/public/api/recipes/recipe/'+this.recipe[i].id,
-                    //'https://api.spoonacular.com/recipes/'+this.recipes[i].id+'/information?includeNutrition=false&apiKey='+this.appKey
-                })
-                .then(
-                    (response) => {
-                        let items = response.data;
-                        
-                        this.recipes[i].name= items.name;
-                        this.recipes[i].image= items.image;
-                        this.recipes[i].time= items.total_time;
-                        this.recipes[i].likes= items.likes;
-                        this.recipes[i].description= items.description;
-                        this.recipes[i].instructions= items.preparation_instructions;
-                        
-                        let ingredientsList = "";
-                        for(let i = 0; i < items.recipe_has_ingredients.length; i++){
-                            ingredientsList += items.recipe_has_ingredients[i].original + "\n";
-                        }
-
-                        this.recipes[i].ingredients = ingredientsList;
-                        
-                        //this.recipes[i].category= items.category; //tambien sin este obtiene datos de categorias
-                    }
-                )
-                .catch(
-                    error => console.log(error)
-                );   
-
-            }
-        },
-        
-        //save
-        /*
-        fillDataDetails(){
-            for(let i =0; i<this.recipes.length; i++){
-                axios({
-                    method: 'get',
-                    url: 'https://api.spoonacular.com/recipes/'+this.recipes[i].id+'/information?includeNutrition=false&apiKey='+this.appKey
-                })
-                .then(
-                    (response) => {
-                        let items = response.data;
-                        
-                        this.recipes[i].name= items.title;
-                        this.recipes[i].time= items.readyInMinutes;
-                        this.recipes[i].likes= items.aggregateLikes;
-                        this.recipes[i].instructions= items.instructions;
-                        
-                        let ingredientsList = "";
-                        for(let i = 0; i < items.extendedIngredients.length; i++){
-                            ingredientsList += items.extendedIngredients[i].original + "\n";
-                        }
-
-                        this.recipes[i].ingredients = ingredientsList;
-                        
-                        //this.recipes[i].category= items.category; //tambien sin este obtiene datos de categorias
-                    }
-                )
-                .catch(
-                    error => console.log(error)
-                );   
-
-            }
-        },*/
-
-        onClickRecipeLike(index){
-            //console.log("btn - click");
-            //this.likes += 1;
-        
-            //console.log("INDEX -> " + index);
-            this.recipes[index].likes += 1;
-        },
-        onClickRecipeUnlike(index){
-            //if(this.likes > 0) this.likes -= 1;
-            if(this.recipes[index].likes > 0) this.recipes[index].likes -= 1;
-        }, 
-
-        onSaveRecipe(){  
-
-            for (let i = 0; i < this.all_recipes.length; i++) {
-                if(this.recipes[i] = 'saverecipe'){
-                    this.saved_recipe.push(this.recipe[i]);
-                }
-            } 
-        },
-
-        onClickSaveRecipe(){
-            //this.onFavoriteRecipe(likes);
-            this.onSaveRecipe();
-            console.log(saved_recipe);
-        },
-
-
-            //Sin on click category puedo obtener las recetas y detalles de distintas catecorias, es raro?
-
-        /*
-        onClickCategory(category){
-            //console.log("category -> " + category);
-            if(category == "All"){
-                this.hasRecipes = true;
-                this.recipes = this.all_recipes;
-            }else{
-                this.recipes = this.all_recipes;
-                let recipesInCategory = this.recipes.filter(function(el){
-                    return el.category === category;
-                });
-                //console.log(recipesInCategory.length);
-                if(recipesInCategory.length > 0) {
-                    this.hasRecipes = true;
-                    this.recipes = recipesInCategory;
-                }else{
-                    this.hasRecipes = false;
-                }
-            }
-        }, */
-        //método que se ejecuta cuando se emite el evento searchrecipe del componente Search Recipe
-        onSearchRecipe(keyword){
-            axios({
-                method: 'get',
-                url: 'https://api.spoonacular.com/recipes/complexSearch?query='+keyword+'&apiKey='+this.appKey
-            })
-            .then(
-                (response) => {
-                    let items = response.data.results;
-                    this.recipes =[];
-                
-                    items.forEach( element => {
-                        this.recipes.push({
-                            id: element.id,
-                            image: element.image,
-                            name: element.title,
-                            time: 20,
-                            level: "Easy",
-                            likes: 18,
-                            instructions: "NA"
-                        });
-                        if(items.length > 0) this.loading = false;
-                    })
-                    this.fillDataDetails()
                 }
             )
             .catch(
@@ -228,34 +276,32 @@ const app = Vue.createApp({
         },
 
 
+
+        //SEARCH RECIPE BY NAME
+
+        // FAVORITOS
         onFavoriteRecipe(){
             
            let favorites = [];
             for (let i = 0; i < this.recipes.length; i++){
-                if(this.recipes[i].likes>99){
+                if(this.recipes[i].likes>500){
                     favorites.push(this.recipes[i]);
                 }
             } 
-            console.log(this.recipes);
             console.log(favorites);
            
         },
 
-        // FAVORITOS
+        
         onClickFavoriteRecipe(){
-            //this.onFavoriteRecipe(likes);
             this.onFavoriteRecipe();
             
         },
 
-        onClickRecipeDetails(index){
-            console.log("RECIPE ID -" + index );
-            this.selectedIndex = index;
-        },
-        //este es el que es realmente necesario para encontrar recetas por categoria
-        onClickSelectedCategory(category){
-            this.getRecipesByCategory(category);
-        }
+        // FAVORITOS
+
+
+ 
      }
  });
  

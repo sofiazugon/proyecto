@@ -49,21 +49,8 @@
             <h1>Registro de Usuario</h1>
             <p>No tienes cuenta? Ingresa tus datos aquí para quedar registrado.</p>
             <section class="row">
-                <h2>Nombre:</h2>
-                <input type="text">
-                <h2>Apellido:</h2>
-                <input type="text">
-                <h2>Nombre de Usuario:</h2>
-                <input type="text">
-                <h2>Correo Electrónico:</h2>
-                <input type="text">
-                <h2>Contaseña:</h2>
-                <input type="text">
-                <h2>Verificar Contraseña:</h2>
-                <input type="text">
-            </section>
-            <section class="pt-5 align-content-center pb-3">
-                <button class="btn red-btn">Registrar</button>
+              <signin-form></signin-form>
+              
             </section>
             
         </section>
@@ -91,13 +78,12 @@
     </section>
 <!-- VueJS -->
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://unpkg.com/mitt/dist/mitt.umd.js"></script>
+
 <!-- main script -->
-<script src="./js/main.js"></script>
-<script src="./js/component.js"></script>
-<script src="js/components/RecipeDetails.js"></script>
-<script src="js/scroll.js"></script>
-<script src="js/components/RecipeCategoryButton.js"></script>
-<script src="js/components/RecipeCard.js"></script>
+<script src="js/component.js"></script>
+<script src="./js/components/LogIn.js"></script>
+<script src="js/components/SignIn1.js"></script>
 <!-- mounted -->
  <!-- Axios - API recipes-->
  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

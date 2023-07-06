@@ -1,5 +1,8 @@
 app.component('recipe-category-button',{
     props:{
+        id:{
+            type: String
+        },
         name:{
             type: String
         }
@@ -7,8 +10,8 @@ app.component('recipe-category-button',{
 
     methods:{
         onClickCategoryButton(){
-            console.log(this.name);
-            this.$emit('selectedcategory', this.name);
+            console.log(this.id);
+            this.$emit('selectedcategory', this.id);
         }
     },
 

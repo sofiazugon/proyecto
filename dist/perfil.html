@@ -16,34 +16,7 @@
     <title>Cook It</title>
 </head>
 <body>
-    <section id="#app">
-        <recipe-card></recipe-card>
-        
-        <!-- Modal -->
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-style">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 id="staticBackdropLabel">{{ recipes[selectedIndex].name }}</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body row">
-              <img class="d-block m-auto img-fluid" v-bind:src="recipes[selectedIndex].image" alt="{{ recipes[selectedIndex].name }}">
-              <p>Ingredientes</p>
-              <h2 class="text-center fs-6">{{ recipes[selectedIndex].ingredients }}</h2>
-              <p>Preparacion</p>
-              <h3 class="fst-italic fw-light fs-5">{{ recipes[selectedIndex].instructions }}</h3>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn lred-btn" v-on:click="onClickPrev()">Anterior</button>
-              <button type="button" class="btn nred-btn" v-on:click="onClickNext()">Siguiente</button>
-              <button type="button" class="btn red-btn" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Modal -->
-
+    <section id="app" >
         <!--Nav-->  
         <div >
           <header class=" position-relative">
@@ -79,11 +52,13 @@
       </div>
         <!--Nav-->
         <section class="container-lg sec-perfil ">  
-            <section class="row secodaryBg">
-                <h2>Nombre:</h2>
-                <h2>Apellido:</h2>
-                <h2>Nombre de Usuario:</h2>
-                <h2>Correo Electrónico:</h2>
+            <section v-for="(item, index) in user" class="row secodaryBg">
+              
+              
+              <h1>Nombre: {{ item.name }}</h1>
+              <h1>Apellido: {{ item.lastname }}</h1>
+              <h1>Email: {{ item.email }}</h1>
+              <h1>Pais: {{ item.country }}</h1> 
             </section>
             
             <section>
@@ -96,14 +71,7 @@
                                 <img v-bind:src="item.image" class="card-img-top rounded" alt="featured recipe">
                               </div>
                               <div class="col-md-8">
-                                <div class="card-body pt-0">
-                                    <h2 class="mt-2 mb-0">{{ item.category }}</h2>
-                                    <h1 class="card-title">{{ item.name }}</h1>
-                                    <p class="card-text mb-0">{{ item.description }}</p>
-                                    <p class="mb-0">{{ item.time }}</p>
-                                    <p class="mb-0">{{ item.level }}</p>
-                                    <button class="btn red-btn" v-on:click="onClickViewRecipe(index)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Ver Receta</button>
-                                </div>
+                                
                               </div>
                             </div>
                         </div>
@@ -135,14 +103,15 @@
 
     </section>
 </section>
-<!-- VueJS -->
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<!-- main script -->
-<script src="./js/main.js"></script>
-<script src="./js/components/RecipeCard.js"></script>
-<script src="./js/components/RecipeCategoryButton.js"></script>
+<script src="https://unpkg.com/mitt/dist/mitt.umd.js"></script>
 
+<!-- main script -->
+<script src="./js/component.js"></script>
+<script src="js/components/LogIn.js"></script>
 <!-- mounted -->
+ <!-- Axios - API recipes-->
+ <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
   const mountedApp = app.mount("#app");
 </script>

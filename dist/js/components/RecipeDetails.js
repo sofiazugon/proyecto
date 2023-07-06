@@ -15,6 +15,23 @@ app.component('recipe-details', {
     description:{
       type: String,
   },
+  category: {
+    type: String
+  },
+  likes: {
+    type: Number
+  },
+  total_time: {
+    type: Number
+  },
+  portions: {
+    type: Number
+  },
+  occasion: {
+    type: String
+  },
+  
+  
 
   },
   data() {
@@ -37,13 +54,23 @@ app.component('recipe-details', {
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <img class="d-block m-auto img-fluid" v-bind:src="image" alt="{{ image }}">
-              <p class="text-center fs-6">{{ ingredients }}</p>
+        <section class="container col-md-12" >
+          <div style="display: flex; flex-direction: row;">
+
+          <div> <p class="text-center fs-6">Category: {{ category }}</p></div>
+          <div> <p class="text-center fs-6">Portion: {{ portions }}</p></div>
+          <div> <p class="text-center fs-6">Occasion: {{ occasion }}</p></div>
+          <div> <p class="text-center fs-6">Time: {{ total_time }} Minutes</p></div>
+            
+          </div>
+        </section>
               <p class="fst-italic fw-light fs-5">{{ description }}</p>
+              <p class="fst-italic fw-light fs-5">{{ ingredients }}</p>
               <p class="fst-italic fw-light fs-5">{{ instructions }}</p>
               
-        <div class="modal-footer">
-        <button type="button" class="btn red-btn" data-bs-dismiss="modal">Cerrar</button>
-
+        <div class="row pb-4">
+          <button type="button" class="btn red-btn" data-bs-dismiss="modal">Cerrar</button>
+        </div>
         </div>
       </div>
     </div>

@@ -16,7 +16,7 @@
     <title>Cook It</title>
 </head>
 <body>
-    <section>
+    <section  id="app">
         <!--Nav-->
             <header class="position-relative">
                 <nav class="navbar col-md-12 navbar-box navbar-expand-lg">
@@ -43,19 +43,9 @@
         
         <!--Nav-->
 
-        <section class="container-lg sec-perfil">
-            <h1>Ingresa tus datos</h1>
-            <section class="row">
-                <h2>Correo Electrónico:</h2>
-                <input type="text">
-                <h2>Contaseña:</h2>
-                <input type="text">
-            </section>
-            <a href="get_password.html">¿Olividó su contraseña? <br>Recuperela aquí</a>
-            <section class="pt-5 pb-5">
-                <button class="btn red-btn">Iniciar Sesión</button>
-            </section>
-            
+            <section class="container-lg sec-perfil">
+                <login-form><login-form>
+                 
         </section>
         <!-- footer -->
         <footer class="row text-center navbar-box container-fluid ">
@@ -79,7 +69,22 @@
         <!-- footer -->
 
     </section>
+   
+    <!-- VueJS -->
+<!-- VueJS -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://unpkg.com/mitt/dist/mitt.umd.js"></script>
 
-
+<!-- main script -->
+<script src="js/component.js"></script>
+<script src="js/components/LogIn.js"></script>
+<script src="js/components/SignIn1.js"></script>
+<!-- mounted -->
+ <!-- Axios - API recipes-->
+ <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  const mountedApp = app.mount("#app");
+</script>
 
 </body>
+</html>
